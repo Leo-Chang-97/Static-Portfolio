@@ -1,0 +1,610 @@
+/* #region 浮動 */
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+/* 清除浮動 */
+.clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+/* #endregion 浮動 */
+
+/* #region 定位 */
+.position-relative {
+    position: relative;
+}
+
+.position-absolute {
+    position: absolute;
+}
+
+/* #endregion 定位 */
+
+/* #region col-12等分百分比 */
+.col-1 {
+    width: 8.333333333%;
+}
+
+.col-2 {
+    width: 16.66666667%;
+}
+
+.col-3 {
+    width: 25%;
+}
+
+.col-4 {
+    width: 33.33333333%;
+}
+
+.col-5 {
+    width: 41.66666667%;
+}
+
+.col-6 {
+    width: 50%;
+}
+
+.col-7 {
+    width: 58.33333333%;
+}
+
+.col-8 {
+    width: 66.66666667%;
+}
+
+.col-9 {
+    width: 75%;
+}
+
+.col-10 {
+    width: 83.33333333%;
+}
+
+.col-11 {
+    width: 91.66666667%;
+}
+
+.col-12 {
+    width: 100%;
+}
+
+/* #endregion col-12等分百分比 */
+
+/* #region 變數設置 */
+:root {
+    --primary-color: #650a30;
+    --second-color: #40061e;
+    --third-color: #c70656;
+    --bg1-color: #fef2e3;
+    --bg2-color: #fff8ed;
+    --text1-color: #1c1e21;
+    --text2-color: #5e0f12;
+}
+
+/* #endregion 變數設置 */
+
+/* --------------------------------------------------------- */
+
+/* #region 整體設置 */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Microsoft Jhenghei', Arial, Helvetica, sans-serif;
+    margin-top: 80px;
+}
+
+.container {
+    width: 70%;
+    margin: 0 auto;
+}
+
+h1 {
+    color: var(--second-color);
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin: 50px 0;
+}
+
+h2 {
+    color: var(--text2-color);
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 30px 0;
+}
+
+/* #endregion 整體設置 */
+
+/* #region 頁首 */
+
+header {
+    background-color: #650a30;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.logo {
+    text-align: left;
+    padding: 5px;
+}
+
+header ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    line-height: 80px;
+}
+
+header div {
+    height: 80px;
+}
+
+header img {
+    height: 100%;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 18px;
+    position: relative;
+}
+
+nav ul li a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+nav ul li a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.social-icon li {
+    margin-left: 20px;
+}
+
+.social-icon a {
+    font-size: 30px;
+}
+
+/* #endregion 頁首 */
+
+/* #region 麵包屑 */
+.bg-breadcrumb {
+    background-color: var(--second-color);
+    padding: 10px 0px;
+}
+
+.breadcrumb {
+    padding: 0px;
+    margin: 0px;
+    list-style-type: none;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+}
+
+.breadcrumb>li+li::before {
+    /* content: "\00a0/\00a0"; */
+    content: "/";
+    color: white;
+    padding: 0 15px;
+}
+
+/* #endregion 麵包屑 */
+
+/* #region 頁腳 */
+footer {
+    height: 80px;
+    background-color: var(--primary-color);
+}
+
+.footer-bar {
+    margin: 0 auto;
+    text-align: center;
+}
+
+footer p {
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+}
+
+footer a {
+    color: white;
+}
+
+footer ul {
+    margin-top: 10px;
+    list-style: none;
+    display: inline-block;
+}
+
+footer ul li a {
+    padding: 0 15px;
+    border-right: 1px solid white;
+}
+
+footer ul li:hover a {
+    color: #650a30;
+    background-color: white;
+}
+
+footer ul li:last-child a {
+    border-right: 0;
+}
+
+/* #endregion 頁腳 */
+
+/* #region 側邊導航欄 */
+.sidebar {
+    text-align: center;
+}
+
+.sidebar li {
+    background-color: var(--bg1-color);
+    font-size: 18px;
+    padding: 20px 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.sidebar ul li a {
+    color: rgb(50, 50, 50);
+    font-weight: bold;
+    display: inline-block;
+    position: relative;
+}
+
+.sidebar a:hover {
+    color: var(--primary-color);
+}
+
+.sidebar a::after {
+    position: absolute;
+    content: "";
+    left: 50%;
+    bottom: -5px;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width .3s ease-in-out, left .3s ease-in-out;
+}
+
+.sidebar a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* #endregion 側邊導航欄 */
+
+/* --------------------------------------------------------- */
+
+/* #region 首頁 */
+.banner-area {
+    /* border: 1px solid black; */
+    padding-bottom: 15px;
+}
+
+.banner {
+    padding: 10px;
+}
+
+.main-banner>img {
+    width: 100%;
+}
+
+.banner>img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.bg-banner {
+    background-color: var(--bg1-color);
+    padding-top: 1px;
+}
+
+.banner-button {
+    width: 100px;
+    height: 40px;
+    background-color: var(--second-color);
+    color: white;
+    margin: 30px auto;
+    text-align: center;
+    line-height: 40px;
+    border-radius: 5px;
+}
+
+.banner-button a {
+    color: white;
+}
+
+.banner-button {
+    transition: transform 0.3s ease-in-out;
+}
+
+.banner-button:hover {
+    transform: scale(1.1);
+}
+
+/* #endregion 首頁 */
+
+/* #region 關於我們 */
+.about {
+    padding-left: 50px;
+}
+
+.about img {
+    width: 100%;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    margin-bottom: 30px;
+}
+
+.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.about-text {
+    height: 530px;
+    display: flex;
+    /* 啟用 flexbox */
+    flex-direction: column;
+    /* 讓元素垂直排列 */
+    justify-content: center;
+    /* 垂直置中 */
+    align-items: center;
+    /* 水平置中 */
+    align-content: center;
+    text-align: center;
+    /* 讓文字也水平置中 */
+    padding: 30px;
+    /* 增加內間距，讓內容更舒適 */
+    gap: 10px;
+    /* 設定 h2 和 p 之間的間距 */
+}
+
+.about-text p {
+    color: var(--text1-color);
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* #endregion 關於我們 */
+
+/* #region 產品列表 */
+
+.product {
+    padding-left: 50px;
+}
+
+.tag-new {
+    top: 0;
+    left: 0;
+    background-color: rgb(219, 13, 13);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.product>.clearfix {
+    margin-bottom: 50px;
+}
+
+.product-box {
+    padding: 50px;
+    border-radius: 5px;
+    margin: 0 10px;
+    border: 2px solid transparent;
+    text-align: center;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.product-box a img {
+    width: 100%;
+    margin-bottom: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-box:hover a img {
+    transform: scale(1.07);
+    /* 滑鼠停留時放大 */
+}
+
+.product-name {
+    max-width: 100%;
+    /* 避免超出父容器 */
+
+    font-size: 20px;
+    font-weight: bold;
+    color: var(--text1-color);
+    word-break: break-word;
+
+    transition: color 0.3s ease-in-out;
+}
+
+.product-box:hover {
+    border: 2px solid var(--bg1-color);
+}
+
+.product-box:hover .product-name {
+    color: #c70656;
+    /* 滑鼠停留時變色 */
+}
+
+/* #endregion 產品列表 */
+
+/* #region 門市資訊 */
+.store {
+    padding: 0 30px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+th,
+td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 30px;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+td {
+    height: 80px;
+}
+
+tr:nth-child(2n+1) {
+    background-color: #fffbf6;
+}
+
+table a {
+    color: var(--text1-color);
+}
+
+table a:hover {
+    color: var(--primary-color);
+}
+
+/* #endregion 門市資訊 */
+
+/* #region 聯絡我們 */
+.contact {
+    padding: 15px;
+}
+
+.contact h2 {
+    text-align: left;
+    margin: 15px 0;
+}
+
+form {
+    background: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 12px;
+    width: 100%;
+    /* max-width: 600px; */
+    margin: auto;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e0e0e0;
+}
+
+label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+    color: #5c3d2e;
+}
+
+form>label:nth-last-of-type(3),
+form>label:nth-last-of-type(2),
+form>label:nth-last-of-type(1) {
+    margin-top: 2rem;
+}
+
+.inline-group label {
+    margin-top: 0.5em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 0.4rem;
+    border: 1px solid #b68447;
+    border-radius: 6px;
+    font-size: 1rem;
+    background-color: var(--bg2-color);
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.inline-group {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    /* margin-top: 0.5rem; */
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin-right: 6px;
+}
+
+button[type="submit"] {
+    margin-top: 2rem;
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--third-color);
+}
+
+/* #endregion 聯絡我們 */

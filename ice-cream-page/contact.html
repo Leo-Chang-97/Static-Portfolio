@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Haagen-Dazs-聯絡我們</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- 頁首區 -->
+    <header>
+        <div class="container clearfix">
+            <div class="col-3 float-left logo">
+                <a href="./index.html"><img src="./images/brand-logo.png" alt=""></a>
+            </div>
+            <div class="col-6 float-left">
+                <nav>
+                    <ul class="clearfix">
+                        <li class="float-left col-3"><a href="about.html">關於我們</a></li>
+                        <li class="float-left col-3"><a href="product.html">產品列表</a></li>
+                        <li class="float-left col-3"><a href="store.html">門市資訊</a></li>
+                        <li class="float-left col-3"><a href="contact.html">聯絡我們</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-3 float-left social-icon clearfix">
+                <ul class="clearfix float-right">
+                    <li class="float-left"><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
+                    <li class="float-left"><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                    <li class="float-left"><a href="#"><i class="fa-brands fa-line"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- 麵包屑區 -->
+    <div class="bg-breadcrumb">
+        <div class="container">
+            <ol class="breadcrumb clearfix">
+                <li class="float-left"><a href="index.html">首頁</a></li>
+                <li class="float-left"><a href="#">聯絡我們</a></li>
+            </ol>
+        </div>
+    </div>
+
+    <!-- 內容區 -->
+    <div class="container clearfix">
+        <h1>聯絡我們</h1>
+        <div class="contact float-left col-6">
+            <form action="#" method="post">
+                <label for="name">姓名：</label>
+                <input id="name" name="name" required type="text" />
+
+                <label for="email">電子郵件：</label>
+                <input id="email" name="email" required type="email" />
+
+                <label for="phone">聯絡電話：</label>
+                <input id="phone" name="phone" type="tel" />
+
+                <label for="visit-date">預約日期：</label>
+                <input id="visit-date" name="visit-date" type="date" />
+
+                <label for="icecream">訂購口味：</label>
+                <select id="icecream" name="icecream">
+                    <option value="vanilla">香草</option>
+                    <option value="strawberries">草莓</option>
+                    <option value="chocolate">巧克力</option>
+                    <option value="cookies">巧酥</option>
+                    <option value="caramel">焦糖</option>
+                </select>
+
+                <label>訂購項目：</label>
+                <div class="inline-group">
+                    <label><input type="checkbox" name="items" value="tub">品脫杯</label>
+                    <label><input type="checkbox" name="items" value="minicup">迷你杯</label>
+                    <label><input type="checkbox" name="items" value="stickbar">冰棒</label>
+                </div>
+
+                <label>是否捐贈發票：</label>
+                <div class="inline-group">
+                    <label><input type="radio" name="invoice" value="yes">是</label>
+                    <label><input type="radio" name="invoice" value="no" checked>否</label>
+                </div>
+
+                <label for="comments">其他需求或意見：</label>
+                <textarea id="comments" name="comments" rows="4" placeholder="請寫下您對我們服務的建議..."></textarea>
+
+                <button type="submit">送出表單</button>
+            </form>
+        </div>
+        <div class="contact float-left col-6">
+            <h2>哈根達斯 敦南旗艦店</h2>
+            <div class="video-container">
+                <iframe class="video"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1872788.1648379073!2d120.64017452510022!3d23.540076461808216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442abb8ec0add63%3A0xf137d1ed062604e5!2z5ZOI5qC56YGU5pavIOaVpuWNl-aXl-iJpuW6lw!5e0!3m2!1szh-TW!2stw!4v1743657049648!5m2!1szh-TW!2stw"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <h2>哈根達斯 板橋大遠百旗艦店</h2>
+            <div class="video-container">
+                <iframe class="video"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1872788.1648379073!2d120.64017452510022!3d23.540076461808216!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a818c287c9c5%3A0x13db5fd6175f3073!2z5ZOI5qC56YGU5pavLeadv-api-Wkp-mBoOeZvuaXl-iJpuW6lw!5e0!3m2!1szh-TW!2stw!4v1743657368763!5m2!1szh-TW!2stw"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- 頁腳區 -->
+    <footer>
+        <div class="container">
+            <div class="footer-bar">
+                <p>MFEE65_10_張忠慈</p>
+                <p> 
+                    網站僅供練習，不做為商業用途。<br>
+                    copyright © icecream. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

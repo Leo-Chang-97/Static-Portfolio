@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>flex 練習</title>
+    <style>
+        /* 全局設置 */
+        body {
+            margin: 0;
+        }
+
+        /* 頁首設置 */
+        header {
+            background-color: #650a30;
+        }
+
+        /* 導覽列 - 使三個區塊均等分布 */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo,
+        .nav-links,
+        .social-icon {
+            flex: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo {
+            justify-content: flex-start;
+        }
+        .nav-links {
+            justify-content: center;
+        }
+        .social-icon {
+            justify-content: flex-end;
+        }
+
+        /* 讓 Logo 圖片適應自動寬度 */
+        .logo img {
+            max-height: 80px;
+            width: auto;
+        }
+
+        /* 導覽連結 & 社交圖示 */
+        .nav-links ul,
+        .social-icon ul {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .nav-links ul {
+            justify-content: space-between;
+        }
+
+        .nav-links a,
+        .social-icon a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .social-icon a {
+            font-size: 24px;
+        }
+
+        /* 導覽連結 Hover 效果 */
+        .nav-links a:hover {
+            color: #650a30;
+            background-color: white;
+        }
+
+        /* 標題設置 */
+        h1 {
+            text-align: center;
+        }
+
+        /* 產品列表 */
+        .product-container {
+            width: 70%;
+            margin: auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .product-box {
+            width: 300px;
+            padding: 20px;
+            text-align: center;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            
+        }
+
+        .product-box:hover img {
+            transform: scale(1.05);
+        }
+
+        /* 產品圖片設置 */
+        .product-box img {
+            width: 100%;
+            transition: transform 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="navbar">
+        <div class="logo"><a href="#"><img src="./images/brand-logo.png" alt=""></a></div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href="#">首頁</a></li>
+                <li><a href="#">產品</a></li>
+                <li><a href="#">關於我們</a></li>
+                <li><a href="#">聯絡</a></li>
+            </ul>
+        </nav>
+        <div class="social-icon">
+            <ul>
+                <li><a href="#"><i class="fa-brands fa-square-facebook"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-line"></i></a></li>
+            </ul>
+        </div>
+    </header>
+    <h1>產品列表</h1>
+    <div class="product-container">
+        <div class="product-box">
+            <img src="./images/product-1.webp" alt="產品 1">
+            <h2>產品名稱 1</h2>
+            <p>產品描述內容...</p>
+        </div>
+        <div class="product-box">
+            <img src="./images/product-2.webp" alt="產品 2">
+            <h2>產品名稱 2</h2>
+            <p>產品描述內容...</p>
+        </div>
+        <div class="product-box">
+            <img src="./images/product-3.webp" alt="產品 3">
+            <h2>產品名稱 3</h2>
+            <p>產品描述內容...</p>
+        </div>
+        <div class="product-box">
+            <img src="./images/product-1.webp" alt="產品 1">
+            <h2>產品名稱 1</h2>
+            <p>產品描述內容...</p>
+        </div>
+        <div class="product-box">
+            <img src="./images/product-2.webp" alt="產品 2">
+            <h2>產品名稱 2</h2>
+            <p>產品描述內容...</p>
+        </div>
+        <div class="product-box">
+            <img src="./images/product-3.webp" alt="產品 3">
+            <h2>產品名稱 3</h2>
+            <p>產品描述內容...</p>
+        </div>
+        <div class="product-box">
+            <img src="./images/product-1.webp" alt="產品 1">
+            <h2>產品名稱 1</h2>
+            <p>產品描述內容...</p>
+        </div>
+        <div class="product-box">
+            <img src="./images/product-2.webp" alt="產品 2">
+            <h2>產品名稱 2</h2>
+            <p>產品描述內容...</p>
+        </div>
+        <div class="product-box">
+            <img src="./images/product-3.webp" alt="產品 3">
+            <h2>產品名稱 3</h2>
+            <p>產品描述內容...</p>
+        </div>
+    </div>
+</body>
+
+</html>
