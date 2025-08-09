@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Flickr 版型-圖片輪播</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/03-pageContent.css">
+</head>
+
+<body>
+    <!-- 導航列 -->
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <div class="w-200px position-relative d-flex align-items-center trans-2s me-3">
+                    <i class="fa-solid fa-magnifying-glass text-light position-absolute ps-3"></i>
+                    <input type="text" class="form-control ps-5 rounded-pill" placeholder="相片、人物或群組">
+                </div>
+                <div class="btn btn-outline-light border-0">
+                    <i class="fa-solid fa-cloud"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header區 -->
+    <header class="h-700px bg-dark">
+        <div id="carouselExample" class="carousel slide h-100">
+            <div class="carousel-indicators btn-5px">
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0"
+                    class="active position-relative" aria-current="true" aria-label="Slide 1">
+                    <img src="./images/img-01.jpeg" class="w-30px h-30px position-absolute top-0 start-0" alt="">
+                </button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="1" class="position-relative"
+                    aria-label="Slide 2">
+                    <img src="./images/img-02.jpeg" class="w-30px h-30px position-absolute top-0 start-0" alt="">
+                </button>
+                <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="2" class="position-relative"
+                    aria-label="Slide 3">
+                    <img src="./images/img-03.jpeg" class="w-30px h-30px position-absolute top-0 start-0" alt="">
+                </button>
+            </div>
+            <div class="carousel-inner h-100 pc-1">
+                <div class="carousel-item h-100 active">
+                    <img src="./images/img-01.jpeg" class="d-block w-100 h-100 object-fit-contain" alt="...">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="./images/img-02.jpeg" class="d-block w-100 h-100 object-fit-contain" alt="...">
+                </div>
+                <div class="carousel-item h-100">
+                    <img src="./images/img-03.jpeg" class="d-block w-100 h-100 object-fit-contain" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Footer區 -->
+    <footer></footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+
+    <!-- 搜尋Bar點擊動態 -->
+    <script>
+        document.querySelector("input").addEventListener("click", function (e) {
+            e.stopPropagation();
+            document.querySelector(".w-200px").classList.add("w-400px")
+        })
+        window.addEventListener("click", function () {
+            document.querySelector(".w-200px").classList.remove("w-400px")
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap Facebook Demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./css/01-pageFacebook.css">
+</head>
+
+<body class="bg-fb7 placeholder-glow">
+    <nav class="bg-fb1">
+        <div class="container text-light h-50px d-flex align-items-center">
+            <i class="fa-brands fa-square-facebook fs-2 me-2"></i>
+
+            <div class="input-group w-400px me-auto input-group-sm">
+                <input type="text" class="form-control" placeholder="搜尋" aria-label="Recipient's username"
+                    aria-describedby="basic-addon2">
+                <span class="input-group-text" id="basic-addon2"><i class="fa-solid fa-magnifying-glass"></i></span>
+            </div>
+
+            <div class="bg-fb3 w-30px h-30px rounded-circle me-auto"></div>
+
+            <div class="text-light">
+                <span class="px-3 border-end border-start border-primary-subtle">首頁</span>
+            </div>
+            <div class="text-light">
+                <span class="px-3 border-end border-primary-subtle">建立</span>
+            </div>
+
+            <div class="border-end">
+                <i class="fa-solid fa-user fs-4 text-fb-i px-4"></i>
+                <i class="fa-solid fa-comment fs-4 text-fb-i pe-4"></i>
+                <i class="fa-solid fa-bell fs-4 text-fb-i pe-4"></i>
+            </div>
+
+            <div class="ps-3">
+                <i class="fa-solid fa-circle-question fs-4 text-fb-i pe-4"></i>
+                <i class="fa-sharp fa-solid fa-sort-down fs-4 text-fb-i pe-4"></i>
+            </div>
+
+        </div>
+    </nav>
+    <main>
+        <div class="container">
+            <div class="row">
+                <!-- 左邊功能欄 -->
+                <div class="col-2">
+                    <div class="mt-2">
+                        <div class="hstack gap-1 mt-2 mb-4">
+                            <div class="h-30px w-30px rounded-circle bg-secondary"></div>
+                            <div class="placeholder col-8"></div>
+                        </div>
+                        <div class="hstack gap-1 mt-1 mb-1">
+                            <div class="h-30px w-30px rounded-1 bg-secondary placeholder"></div>
+                            <div class="placeholder col-8"></div>
+                            <div class="placeholder col-1 ms-auto"></div>
+                        </div>
+                        <div class="hstack gap-1 mt-1 mb-1">
+                            <div class="h-30px w-30px rounded-1 bg-secondary placeholder"></div>
+                            <div class="placeholder col-4"></div>
+                            <div class="placeholder col-1 ms-auto"></div>
+                        </div>
+                        <div class="hstack gap-1 mt-1 mb-4">
+                            <div class="h-30px w-30px rounded-1 bg-secondary placeholder"></div>
+                            <div class="placeholder col-6"></div>
+                            <div class="placeholder col-1 ms-auto"></div>
+                        </div>
+                        <div class="hstack gap-1 mt-1 mb-1">
+                            <div class="h-30px w-30px rounded-1 bg-secondary placeholder"></div>
+                            <div class="placeholder col-8"></div>
+                            <div class="placeholder col-1 ms-auto"></div>
+                        </div>
+                        <div class="hstack gap-1 mt-1 mb-1">
+                            <div class="h-30px w-30px rounded-1 bg-secondary placeholder"></div>
+                            <div class="placeholder col-4"></div>
+                            <div class="placeholder col-1 ms-auto"></div>
+                        </div>
+                        <div class="hstack gap-1 mt-1 mb-1">
+                            <div class="h-30px w-30px rounded-1 bg-secondary placeholder"></div>
+                            <div class="placeholder col-6"></div>
+                            <div class="placeholder col-1 ms-auto"></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 中間內容區 -->
+                <div class="col">
+                    <div class="card mt-2">
+                        <!-- 使用者 -->
+                        <div class="card-header bg-white border-0 d-flex">
+                            <div class="w-50px h-50px rounded-circle bg-fb3 placeholder me-2"></div>
+                            <div class="w-75">
+                                <div>
+                                    <span class="placeholder col-10"></span>
+                                </div>
+                                <div>
+                                    <span class="placeholder col-2"></span>
+                                    <i class="fa-solid fa-earth-americas"></i>
+                                </div>
+                            </div>
+                            <div class="ms-auto"><i class="fa-solid fa-ellipsis"></i></div>
+                        </div>
+                        <!-- 文字與圖片 -->
+                        <div class="card-body p-0">
+                            <div class="px-3 mb-2">
+                                <span class="placeholder col-10"></span>
+                                <span class="placeholder col-6"></span>
+                                <span class="placeholder col-8"></span>
+                                <span class="placeholder col-4"></span>
+                            </div>
+                            <div>
+                                <div class="img placeholder w-100 h-300px bg-fb3"></div>
+                            </div>
+                        </div>
+                        <!-- 讚、回應與分享 -->
+                        <div class="card-footer bg-white border-0 pb-0">
+                            <div class="nav justify-content-between border-bottom">
+                                <a class="nav-link d-flex" href="#">
+                                    <div class="w-20px h-20px rounded-circle bg-primary d-flex justify-content-center align-items-center me-1">
+                                        <i class="fa-solid fa-thumbs-up text-white fs-like"></i>
+                                    </div>
+                                    <span>n人按讚</span>
+                                </a>
+                                <a class="nav-link" href="#">
+                                    <span>n次分享</span>
+                                </a>
+                            </div>
+                            <div class="nav justify-content-around">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <i class="fa-regular fa-thumbs-up"></i>
+                                    <span>讚</span>
+                                </a>
+                                <a class="nav-link" href="#">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <span>回應</span>
+                                </a>
+                                <a class="nav-link" href="#">
+                                    <i class="fa-regular fa-share-from-square"></i>
+                                    <span>分享</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-2">
+                        <!-- 使用者 -->
+                        <div class="card-header bg-white border-0 d-flex">
+                            <div class="w-50px h-50px rounded-circle bg-fb3 placeholder me-2"></div>
+                            <div class="w-75">
+                                <div>
+                                    <span class="placeholder col-10"></span>
+                                </div>
+                                <div>
+                                    <span class="placeholder col-2"></span>
+                                    <i class="fa-solid fa-earth-americas"></i>
+                                </div>
+                            </div>
+                            <div class="ms-auto"><i class="fa-solid fa-ellipsis"></i></div>
+                        </div>
+                        <!-- 文字與圖片 -->
+                        <div class="card-body p-0">
+                            <div class="px-3 mb-2">
+                                <span class="placeholder col-10"></span>
+                                <span class="placeholder col-6"></span>
+                                <span class="placeholder col-8"></span>
+                                <span class="placeholder col-4"></span>
+                            </div>
+                            <div>
+                                <div class="img placeholder w-100 h-300px bg-fb3"></div>
+                            </div>
+                        </div>
+                        <!-- 讚、回應與分享 -->
+                        <div class="card-footer bg-white border-0 pb-0">
+                            <div class="nav justify-content-between border-bottom">
+                                <a class="nav-link d-flex" href="#">
+                                    <div class="w-20px h-20px rounded-circle bg-primary d-flex justify-content-center align-items-center me-1">
+                                        <i class="fa-solid fa-thumbs-up text-white fs-like"></i>
+                                    </div>
+                                    <span>n人按讚</span>
+                                </a>
+                                <a class="nav-link" href="#">
+                                    <span>n次分享</span>
+                                </a>
+                            </div>
+                            <div class="nav justify-content-around">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <i class="fa-regular fa-thumbs-up"></i>
+                                    <span>讚</span>
+                                </a>
+                                <a class="nav-link" href="#">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <span>回應</span>
+                                </a>
+                                <a class="nav-link" href="#">
+                                    <i class="fa-regular fa-share-from-square"></i>
+                                    <span>分享</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card mt-2">
+                        <!-- 使用者 -->
+                        <div class="card-header bg-white border-0 d-flex">
+                            <div class="w-50px h-50px rounded-circle bg-fb3 placeholder me-2"></div>
+                            <div class="w-75">
+                                <div>
+                                    <span class="placeholder col-10"></span>
+                                </div>
+                                <div>
+                                    <span class="placeholder col-2"></span>
+                                    <i class="fa-solid fa-earth-americas"></i>
+                                </div>
+                            </div>
+                            <div class="ms-auto"><i class="fa-solid fa-ellipsis"></i></div>
+                        </div>
+                        <!-- 文字與圖片 -->
+                        <div class="card-body p-0">
+                            <div class="px-3 mb-2">
+                                <span class="placeholder col-10"></span>
+                                <span class="placeholder col-6"></span>
+                                <span class="placeholder col-8"></span>
+                                <span class="placeholder col-4"></span>
+                            </div>
+                            <div>
+                                <div class="img placeholder w-100 h-300px bg-fb3"></div>
+                            </div>
+                        </div>
+                        <!-- 讚、回應與分享 -->
+                        <div class="card-footer bg-white border-0 pb-0">
+                            <div class="nav justify-content-between border-bottom">
+                                <a class="nav-link d-flex" href="#">
+                                    <div class="w-20px h-20px rounded-circle bg-primary d-flex justify-content-center align-items-center me-1">
+                                        <i class="fa-solid fa-thumbs-up text-white fs-like"></i>
+                                    </div>
+                                    <span>n人按讚</span>
+                                </a>
+                                <a class="nav-link" href="#">
+                                    <span>n次分享</span>
+                                </a>
+                            </div>
+                            <div class="nav justify-content-around">
+                                <a class="nav-link active" aria-current="page" href="#">
+                                    <i class="fa-regular fa-thumbs-up"></i>
+                                    <span>讚</span>
+                                </a>
+                                <a class="nav-link" href="#">
+                                    <i class="fa-regular fa-comment"></i>
+                                    <span>回應</span>
+                                </a>
+                                <a class="nav-link" href="#">
+                                    <i class="fa-regular fa-share-from-square"></i>
+                                    <span>分享</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- 右邊廣告區 -->
+                <div class="col-3">
+                    <div class="card rounded-0 rounded-bottom-2 mt-2">
+                        <div class="card-body p-2">
+                            <div class="img placeholder w-100 h-200px bg-fb3"></div>
+                            <span class="placeholder col-10"></span>
+                            <span class="placeholder col-12"></span>
+                            <span class="placeholder col-12"></span>
+                            <span class="placeholder col-3"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+@import _mixin
+
+// $fbColor1: #3b5998
+// $fbColor2: #5a6589
+// $fbColor3: #4e69aa
+// $fbColor4: #808cba
+// $fbColor5: #9fa8cb
+// $fbColor6: #bfc4dc
+// $fbColor7: #dfe1ee
+// $fbColor8: #2b3c63
+// 轉換成變數陣列
+$fbColor: #3b5998, #5a6589, #4e69aa, #808cba, #9fa8cb, #bfc4dc, #dfe1ee, #2b3c63
+
+@include h-npx(20)
+@include h-npx(25)
+@include h-npx(30)
+@include h-npx(50)
+@include h-npx(200)
+@include h-npx(300)
+
+@include w-npx(20)
+@include w-npx(25)
+@include w-npx(30)
+@include w-npx(50)
+@include w-npx(200)
+@include w-npx(400)
+@include w-npx(500)
+
+// @include bgc(bg-fb1, $fbColor1)
+// @include bgc(bg-fb2, $fbColor2)
+// @include bgc(bg-fb3, $fbColor3)
+// @include bgc(bg-fb4, $fbColor4)
+// @include bgc(bg-fb5, $fbColor5)
+// 用for迴圈取出變數陣列的顏色
+@for $i from 1 through 8
+    @include bgc(bg-fb#{$i}, nth($fbColor, $i))
+    @include color(text-fb#{$i}, nth($fbColor, $i))
+
+.text-fb-i 
+    color: #1b2a47
+.fs-like
+    font-size: 0.7rem

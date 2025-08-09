@@ -1,0 +1,43 @@
+@use "_mixin" as *
+
+@include h-npx(30)
+@include h-npx(250)
+@include h-npx(300)
+@include h-npx(700)
+
+@include w-npx(30)
+@include w-npx(200)
+@include w-npx(300)
+@include w-npx(400)
+
+.trans-2s
+    transition: all .2s ease-in-out
+
+aside
+    .nav
+        .nav-link
+            &.active
+                border-bottom: 2px solid #0091dc
+
+.mh-200vh
+    min-height: 200vh
+
+.top-50px
+    top: 50px
+
+main
+    .cover
+        &:hover
+            .ctrl
+                display: flex !important
+    .ctrl
+        display: none !important
+
+.pc-1
+  padding-top: 50px
+  padding-bottom: 50px
+  padding-left: 15%
+  padding-right: 15%
+
+.btn-5px
+    bottom: 5px

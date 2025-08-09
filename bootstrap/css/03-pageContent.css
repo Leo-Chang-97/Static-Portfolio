@@ -1,0 +1,65 @@
+.h-30px {
+  height: 30px;
+}
+
+.h-250px {
+  height: 250px;
+}
+
+.h-300px {
+  height: 300px;
+}
+
+.h-700px {
+  height: 700px;
+}
+
+.w-30px {
+  width: 30px;
+}
+
+.w-200px {
+  width: 200px;
+}
+
+.w-300px {
+  width: 300px;
+}
+
+.w-400px {
+  width: 400px;
+}
+
+.trans-2s {
+  transition: all 0.2s ease-in-out;
+}
+
+aside .nav .nav-link.active {
+  border-bottom: 2px solid #0091dc;
+}
+
+.mh-200vh {
+  min-height: 200vh;
+}
+
+.top-50px {
+  top: 50px;
+}
+
+main .cover:hover .ctrl {
+  display: flex !important;
+}
+main .ctrl {
+  display: none !important;
+}
+
+.pc-1 {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  padding-left: 15%;
+  padding-right: 15%;
+}
+
+.btn-5px {
+  bottom: 5px;
+}/*# sourceMappingURL=03-pageContent.css.map */
