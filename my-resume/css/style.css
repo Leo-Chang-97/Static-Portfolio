@@ -1,0 +1,912 @@
+/* #region 整體設置 */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 16px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+h2 {
+    font-size: 2rem;
+    margin: 1rem 0;
+    color: var(--accent-bg-color);
+}
+
+.pic {
+    width: 100%;
+}
+
+:root {
+    --main-bg-color: #0d2c48;
+    --accent-bg-color: #4e88b6;
+    --highlight-color: #da9b2a;
+    --alert-color: #bf512c;
+    --neutral-bg-color: #f3f4f8;
+    --soft-bg-color: #ffeed4;
+    --main-text-color: #fff;
+    --accent-text-color: #04b3ec;
+}
+
+/* #endregion 整體設置 */
+
+/* =========================================================== */
+
+/* #region 頁首區 */
+header {
+    background-color: var(--accent-bg-color);
+    display: flex;
+    justify-content: space-between;
+    font-family: "Roboto", sans-serif;
+}
+
+.logo {
+    background-color: var(--main-bg-color);
+}
+
+.logo a {
+    color: var(--main-text-color);
+    font-weight: bold;
+    width: 200px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo a h1 {
+    text-align: center;
+    font-size: 1.6em;
+}
+
+.navbar {
+    display: flex;
+}
+
+.nav-links {
+    background-color: var(--highlight-color);
+    color: var(--main-text-color);
+    width: 150px;
+    font-size: 1.3em;
+    font-weight: bold;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color .3s ease-in-out;
+}
+
+.nav-links:hover {
+    background-color: var(--alert-color);
+}
+
+.menu {
+    display: none;
+}
+
+/* #endregion 頁首區 */
+
+/* #region Banner區 */
+#Banner {
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.slogan {
+    position: absolute;
+    z-index: 10;
+    text-align: center;
+}
+
+.slogan h2 {
+    font-size: 3rem;
+    letter-spacing: 3px;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 238, 212, 0.7);
+    z-index: 2;
+}
+
+.slogan h3 {
+    font-size: 2rem;
+    font-family: "Roboto", sans-serif;
+    color: var(--main-bg-color);
+    text-align: center;
+}
+
+/* #region 3D 旋轉立方體 */
+.cube {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform-style: preserve-3d;
+    animation: Cube 4s infinite ease-in-out alternate both;
+}
+
+.cube-face {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    text-align: center;
+    line-height: 100px;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.front {
+    transform: translateZ(50px);
+    background: var(--accent-bg-color);
+}
+
+.back {
+    transform: translateZ(-50px);
+    background: var(--accent-bg-color);
+}
+
+.left {
+    transform: translateX(-50px) rotateY(90deg);
+    background: var(--alert-color);
+}
+
+.right {
+    transform: translateX(50px) rotateY(90deg);
+    background: var(--alert-color);
+}
+
+.top {
+    transform: translateY(-50px) rotateX(90deg);
+    background: var(--highlight-color);
+}
+
+.bottom {
+    transform: translateY(50px) rotateX(-90deg);
+    background: var(--highlight-color);
+}
+
+@keyframes Cube {
+    0% {
+        transform: translate(-45vw, 300px) rotateX(0) rotateY(0);
+    }
+
+    100% {
+        transform: translate(45vw, -300px) rotateX(360deg) rotateY(360deg);
+    }
+}
+
+/* #endregion 3D 旋轉立方體 */
+
+/* #region 漂浮球動畫 */
+.floating-sphere {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.floating-sphere:nth-last-child(4) {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(to top, #6b89ce, #abbce4);
+    animation: floatBall 5s infinite alternate ease-in-out both;
+    left: 0%;
+    transform: translateX(-50px);
+}
+
+.floating-sphere:nth-last-child(3) {
+    background: linear-gradient(to top, #e7a328, #f2bf26);
+    animation: floatBall 5s infinite 1s alternate ease-in-out both;
+    left: 25%;
+    transform: translateX(-50px);
+}
+
+.floating-sphere:nth-last-child(2) {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(to top, #e65127, #f2672e);
+    animation: floatBall 5s infinite 2s alternate ease-in-out both;
+    left: 75%;
+}
+
+.floating-sphere:nth-last-child(1) {
+    background: linear-gradient(to top, #0c73b8, #30aadd);
+    animation: floatBall 5s infinite 3s alternate ease-in-out both;
+    left: 100%;
+}
+
+@keyframes floatBall {
+    0% {
+        transform: translate(50vw, -300px) rotate(0deg);
+    }
+
+    100% {
+        transform: translate(-50vw, 300px) rotate(360deg);
+    }
+}
+
+/* #endregion 漂浮球動畫 */
+
+/* #endregion Banner區 */
+
+/* #region About區 */
+#About {
+    padding: 80px 0;
+    font-size: 1.1rem;
+    background-color: var(--neutral-bg-color);
+}
+
+#About h2 {
+    margin: 15px 0;
+}
+
+#About h3 {
+    margin: 1rem 0;
+}
+
+#About .container {
+    align-items: flex-start;
+}
+
+.my-photo {
+    width: 48%;
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.description {
+    box-sizing: border-box;
+    color: var(--main-bg-color);
+    width: 48%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    gap: 30px;
+}
+
+.description p {
+    margin: 3% 0;
+}
+
+/* #region Education */
+#Education h4 {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.education-list li {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #e3e3e3;
+    border-radius: 5px;
+}
+
+.education-list li p {
+    margin: 0;
+}
+
+.education-meta {
+    font-size: 1rem;
+    color: var(--accent-bg-color);
+}
+
+.education p {
+    font-size: 1rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+/* #endregion Education */
+
+/* #region Skills區 */
+#Skills {
+    width: 100%;
+}
+
+.skill-list li {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.skill-name {
+    width: 35%;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+.skill-name i {
+    font-size: 2rem;
+}
+
+.skill-bar {
+    width: 60%;
+    height: 30px;
+    padding: 1px 5px;
+    border-radius: 15px;
+    background-color: rgb(224, 224, 224);
+    display: flex;
+    align-items: center;
+}
+
+.skill-level {
+    color: var(--main-text-color);
+    height: 20px;
+    line-height: 20px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    padding-left: 10px;
+}
+
+.skill-html {
+    width: 90%;
+    background-image: linear-gradient(to right, #e65127, #f2672e);
+    animation: html 2s 1;
+}
+
+@keyframes html {
+    from {
+        width: 0%;
+        opacity: 0;
+    }
+
+    to {
+        width: 90%;
+        opacity: 1;
+    }
+}
+
+.skill-css {
+    width: 80%;
+    background-image: linear-gradient(to right, #0c73b8, #30aadd);
+    animation: css 2s 1;
+}
+
+@keyframes css {
+    from {
+        width: 0%;
+        opacity: 0;
+    }
+
+    to {
+        width: 80%;
+        opacity: 1;
+    }
+}
+
+.skill-js {
+    width: 70%;
+    background-image: linear-gradient(to right, #e7a328, #f2bf26);
+    animation: js 2s 1;
+}
+
+@keyframes js {
+    from {
+        width: 0%;
+        opacity: 0;
+    }
+
+    to {
+        width: 70%;
+        opacity: 1;
+    }
+}
+
+.skill-php {
+    width: 60%;
+    background-image: linear-gradient(to right, #6b89ce, #abbce4);
+    animation: php 2s 1;
+}
+
+@keyframes php {
+    from {
+        width: 0%;
+        opacity: 0;
+    }
+
+    to {
+        width: 60%;
+        opacity: 1;
+    }
+}
+
+.skill-mysql {
+    width: 50%;
+    background-image: linear-gradient(to right, #1a5466, #0cb7df);
+    animation: mysql 2s 1;
+}
+
+@keyframes mysql {
+    from {
+        width: 0%;
+        opacity: 0;
+    }
+
+    to {
+        width: 50%;
+        opacity: 1;
+    }
+}
+
+/* #endregion Skills區 */
+
+/* #endregion About區 */
+
+/* #region Work-Experience區 */
+#Work-experience {
+    padding: 80px 0;
+    font-size: 1.1rem;
+    background-color: var(--soft-bg-color);
+}
+
+#Work-experience .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.work-experience-list {
+    width: 100%;
+}
+
+.work-experience-list li {
+    display: flex;
+    margin: 1em 0;
+    padding: 0px 0 20px 0;
+    align-items: center;
+    align-content: baseline;
+    border-bottom: 1px solid var(--highlight-color);
+}
+
+.work-period {
+    color: var(--main-bg-color);
+    flex: 1;
+    font-weight: bold;
+    font-size: 1.2rem;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.company-logo {
+    flex: 1;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-logo img {
+    border: 1px solid var(--accent-bg-color);
+    height: 100%;
+    border-radius: 100%;
+}
+
+.job-title {
+    color: var(--main-bg-color);
+    flex: 1;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+/* #endregion Work-Experience區 */
+
+/* #region Photos區 */
+#Photos {
+    padding: 80px 0;
+    background-color: var(--neutral-bg-color);
+}
+
+#Photos .container {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.photo-area {
+    width: 100%;
+    height: 600px;
+    /* max-width: 1200px; */
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.card {
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card:nth-child(6) {
+    grid-area: 1 / 1 / 3 / 2;
+}
+
+.card:nth-child(5) {
+    grid-area: 1 / 3 / 3 / 5;
+}
+
+.card:nth-child(9) {
+    grid-area: 2 / 5 / 4 / 6;
+}
+
+.side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    transition: transform 0.5s;
+}
+
+.side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.back {
+    color: var(--main-bg-color);
+    text-align: center;
+    display: flex;
+    background: var(--soft-bg-color);
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    transform: rotateY(180deg);
+    transition: transform 0.5s;
+}
+
+.card:hover .side {
+    transform: rotateY(180deg);
+}
+
+.card:hover .back {
+    transform: rotateY(0deg);
+}
+
+/* #endregion Photos區 */
+
+/* #region Contact區 */
+#Contact {
+    padding: 80px 0;
+    background-color: var(--soft-bg-color);
+}
+
+#Contact p {
+    font-size: 1.5rem;
+    color: var(--main-bg-color);
+}
+
+.row {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.col-6 {
+    flex-basis: calc(50% - 15px);
+}
+
+.info {
+    list-style: none;
+    line-height: 1.5;
+    margin-top: 1.5rem;
+    color: var(--main-bg-color);
+}
+
+.info li {
+    margin-bottom: 10px;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+li i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+form {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="tel"],
+form textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    color: #333;
+    font-size: 1rem;
+    font-family: "Noto Sans TC", sans-serif;
+    margin-bottom: 10px;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="tel"]:focus,
+form textarea:focus {
+    outline: none;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+}
+
+.form-group button {
+    width: 30%;
+    background-color: var(--main-bg-color);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 1rem;
+    font-family: "Noto Sans TC", sans-serif;
+    cursor: pointer;
+    transition: background-color .3s ease-in-out;
+}
+
+.form-group button:hover {
+    background-color: var(--accent-bg-color);
+}
+
+/* #endregion Contact區 */
+
+/* #region 頁腳區 */
+footer {
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    height: 60px;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* #endregion 頁腳區 */
+
+/* =========================================================== */
+
+/* #region 手機 */
+@media screen and (max-width: 576px) {
+
+    /* #region 頁首區 */
+    .menu {
+        width: 60px;
+        height: 60px;
+        background-color: var(--neutral-bg-color);
+        cursor: pointer;
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .menu::after {
+        content: '';
+        width: 25px;
+        height: 5px;
+        position: absolute;
+        top: calc((60px - 25px) / 2);
+        left: calc((60px - 25px) / 2);
+        border-top: 15px double var(--main-bg-color);
+        border-bottom: 5px solid var(--main-bg-color);
+    }
+
+    header {
+        flex-wrap: wrap;
+    }
+
+    .navbar {
+        flex-wrap: wrap;
+    }
+
+    .nav-links {
+        width: 100vmin;
+        border-bottom: 1px solid white;
+    }
+
+    /* #endregion 頁首區 */
+
+    /* #region Banner區 */
+    .slogan h2 {
+        font-size: 2rem;
+        padding: 0 10%;
+    }
+
+    .slogan h3 {
+        font-size: 1.5rem;
+    }
+
+    /* #endregion Banner區 */
+
+    /* #region About區 */
+    #About {
+        font-size: 1rem;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    .my-photo,
+    .description {
+        width: 100%;
+    }
+
+    .skill-bar {
+        width: 58%;
+        height: 25px;
+        padding: 1px 5px;
+        border-radius: 15px;
+        background-color: rgb(224, 224, 224);
+        display: flex;
+        align-items: center;
+    }
+
+    .skill-level {
+        color: var(--main-text-color);
+        height: 15px;
+        line-height: 15px;
+        border-radius: 10px;
+        font-size: 1rem;
+        padding-left: 10px;
+    }
+
+    .skill-name {
+        width: 35%;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+    }
+
+    .skill-name i {
+        font-size: 1.6rem;
+    }
+
+    /* #endregion About區 */
+
+    /* #region Work-Experience區 */
+    #Work-experience .container {
+        padding: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .work-experience-list li {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+    }
+
+    .work-period,
+    .company-logo,
+    .job-title {
+        flex: 0 auto;
+    }
+
+    .work-period {
+        width: 100%;
+    }
+
+    .company-logo {
+        justify-content: flex-start;
+    }
+
+    .job-title {
+        justify-content: flex-start;
+    }
+
+    /* #endregion Work-Experience區 */
+
+    /* #region Photos區 */
+    .photo-area {
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .card {
+        width: 48%;
+        height: 200px;
+        max-height: 100%;
+    }
+
+    /* #endregion Photos區 */
+
+    /* #region Contact區 */
+    .col-6 {
+        flex-basis: 0;
+        width: 100%;
+    }
+
+    #Contact p {
+        padding-right: 1%;
+        font-size: 1.5rem;
+        color: var(--main-bg-color);
+    }
+
+    .row {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .form-group button {
+        width: 100%;
+    }
+
+    form {
+        padding: 24px;
+    }
+
+    /* #endregion Contact區 */
+}
+
+/* #endregion 手機 */
+
+/* #region 平板 */
+@media screen and (max-width: 1024px) {
+    
+}
+/* #endregion 平板 */

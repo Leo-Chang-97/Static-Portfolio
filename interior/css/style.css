@@ -1,0 +1,799 @@
+/* #region 整體設置 */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #4D5053;
+}
+
+body {
+    font-family: "Jost", sans-serif;
+    font-size: 16px;
+    background: url('../images/bg.jpg') repeat-y;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+h3 {
+    font-weight: normal;
+}
+
+section {
+    padding: 50px 0;
+}
+
+.section-title {
+    font-family: "DM Serif Display", serif;
+    font-size: 2rem;
+    font-weight: normal;
+    color: #292F36;
+    margin-bottom: 20px;
+}
+
+.desc {
+    line-height: 24px;
+    margin-bottom: 20px;
+}
+
+.title-group {
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 50px;
+
+}
+
+.pic {
+    width: 100%;
+}
+
+/* #endregion 整體設置 */
+
+/* ======================================================== */
+
+/* 手機樣式 576px 以下 */
+
+/* #region Header 區 */
+header .container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 20px;
+    padding: 20px 0;
+}
+
+.navbar {
+    width: 100%;
+    height: 100vh;
+    padding-top: 100px;
+    display: none;
+}
+
+.menu-icon {
+    margin-right: 20px;
+}
+
+.menu-icon i {
+    font-size: 30px;
+}
+
+/* #endregion Header 區 */
+
+/* #region Banner 區 */
+#Banner {
+    height: 500px;
+    background: url(../images/phone/Banner.png) no-repeat;
+    background-position: center bottom;
+    border-bottom-left-radius: 120px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.banner-intro {
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 30px;
+    padding: 30px;
+}
+
+.hero-title {
+    font-family: "DM Serif Display", serif;
+    font-weight: normal;
+    font-size: 2.5rem;
+    color: #292F36;
+    margin-bottom: 10px;
+}
+
+.banner-button {
+    font-size: 18px;
+    padding: 26px 48px;
+    border: none;
+    border-radius: 16px;
+    background-color: #292F36;
+    color: white;
+}
+
+.banner-button i {
+    margin-left: 5px;
+    color: #CDA274;
+}
+
+/* #endregion Banner 區 */
+
+/* #region About 區 */
+#About .container {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-intro {
+    order: 1;
+}
+
+.about-pic {
+    margin-bottom: 20px;
+}
+
+.about-pic img {
+    border-top-right-radius: 150px;
+    border-bottom-left-radius: 100px;
+}
+
+.about-intro {
+    text-align: center;
+}
+
+.call-group {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.call-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background-color: #F4F0EC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.call-icon i {
+    color: #CDA274;
+}
+
+.call-info {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.call-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.call-title {
+    font-size: 1.4rem;
+}
+
+/* #endregion About 區 */
+
+/* #region Testimonials 區 */
+#Testimonials {
+    padding: 50px 15px;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.testimonial-wrapper {
+    display: flex;
+    /* 使用 Flexbox 排版 */
+    flex-direction: column;
+    /* 手機版卡片垂直排列 */
+    gap: 20px;
+    /* 卡片之間的間距 */
+    padding: 50px 20px;
+    /* 上下 50px，左右 20px 的內邊距 */
+    background-color: #F4F0EC;
+    /* 背景顏色 */
+    border-radius: 50px;
+    /* 四邊圓角設置為 70px */
+}
+
+.testimonial-card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* gap: 10px; */
+}
+
+.avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.name {
+    font-family: 'Jost', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px
+}
+
+.location {
+    font-size: 14px;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 14px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* #endregion Testimonials 區 */
+
+/* #region Projectss 區 */
+.pic {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.item:nth-child(1) .pic {
+    border-top-right-radius: 50px;
+}
+
+.item:nth-child(2) .pic {
+    border-top-left-radius: 50px;
+}
+
+.item:nth-child(3) .pic {
+    border-bottom-right-radius: 50px;
+}
+
+.item:nth-child(4) .pic {
+    border-bottom-left-radius: 50px;
+}
+
+.title-group {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.sub-title {
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+    line-height: 20px;
+}
+
+.item {
+    margin-bottom: 30px;
+}
+
+.name-group h3 {
+    font-size: 1.5rem;
+    font-family: 'DM Serif Display', serif;
+}
+
+.project-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.read {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F0EC;
+    border-radius: 50%;
+}
+
+/* #endregion Projectss 區 */
+
+/* #region Article 區 */
+.article-item {
+    width: 100%;
+    padding: 15px;
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    border-radius: 25px;
+}
+
+.article-pic {
+    aspect-ratio: 4/3;
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.tag {
+    background-color: aliceblue;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding: 8px;
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+}
+
+.sub-title {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+}
+
+.article-title {
+    font-size: 1.2rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    letter-spacing: 1px;
+    font-family: 'DM Serif Display', serif;
+}
+
+.link-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.read {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F4F0EC;
+    border-radius: 50%;
+}
+
+/* #endregion Article 區 */
+
+/* #region Footer 區 */
+footer {
+    color: var(--main-text-color);
+    height: 80px;
+    border-top: 1px solid #ddd;
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* #endregion Footer 區 */
+
+/* ======================================================== */
+
+/* 平板樣式 576px 以上 */
+@media screen and (min-width: 576px) {
+
+    /* #region Header 區 */
+    .navbar {
+        display: block;
+        height: auto;
+        width: 60%;
+        padding-top: 0px;
+    }
+
+    .navbar ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navbar ul li {
+        width: 20%;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    /* #endregion Header 區 */
+
+    /* #region Banner 區 */
+    #Banner {
+        height: 556px;
+        background: url(../images/tablet/Banner.png) no-repeat;
+        background-position: center bottom;
+        border-bottom-left-radius: 180px;
+    }
+
+    .desc {
+        font-size: 18px;
+    }
+
+    .banner-intro {
+        background-color: transparent;
+        width: 53%;
+    }
+
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    /* #endregion Banner 區 */
+
+    /* #region About 區 */
+    #About .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .about-intro {
+        order: 0;
+        width: 35%;
+        text-align: left;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: start;
+    }
+
+    .about-pic {
+        width: 58%;
+        margin-bottom: 20px;
+    }
+
+    .about-pic img {
+        border-top-right-radius: 150px;
+        border-bottom-left-radius: 100px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 20px;
+    }
+
+    .call-icon {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        background-color: #F4F0EC;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15px;
+    }
+
+    .call-icon i {
+        color: #CDA274;
+    }
+
+    .call-info {
+        margin-left: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .call-number {
+        font-size: 1.2rem;
+        font-weight: bold;
+    }
+
+    .call-title {
+        font-size: 1.1rem;
+    }
+
+    .call-group {
+        margin-top: 10px;
+    }
+
+    /* #endregion About 區 */
+
+    /* #region Testimonials 區 */
+    .section-title {
+        width: 100%;
+    }
+
+    .testimonial-card {
+        width: 31%;
+        gap: 10px;
+    }
+
+    .section-title {
+        width: 100%;
+    }
+
+    .testimonial-wrapper {
+        flex-direction: row;
+        /* 卡片橫向排列 */
+        flex-wrap: wrap;
+        justify-content: center;
+        /* 水平置中排列 */
+        gap: 20px;
+        /* 卡片間距 */
+        border-radius: 50px;
+        /* 四邊圓角設置為 70px */
+    }
+
+    .testimonial-card {
+        flex: 0 0 calc(33.33% - 20px);
+        /* 每個卡片占 33.33% 減去間距 */
+    }
+
+    /* #endregion Testimonials 區 */
+
+    /* #region Projectss 區 */
+    .title-group {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .project-list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .item {
+        width: 46%;
+        margin-bottom: 50px;
+    }
+
+    /* Feature */
+    .feature-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .feature-list li {
+        width: 30%;
+    }
+
+    /* #endregion Projectss 區 */
+
+    /* #region Article 區 */
+    .article-list {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .article-list li {
+        width: 32%;
+    }
+
+    /* #endregion Article 區 */
+}
+
+/* ======================================================== */
+
+/* 電腦樣式 1024px 以上 */
+@media screen and (min-width: 1024px) {
+
+    /* #region Header 區 */
+    .navbar {
+        display: block;
+        height: auto;
+        width: 60%;
+        padding-top: 0px;
+    }
+
+    .navbar ul {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .navbar ul li {
+        width: 20%;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+
+    /* #endregion Header 區 */
+
+    /* #region Banner 區 */
+    #Banner {
+        height: 1042px;
+        background: url(../images/Banner.jpg) no-repeat;
+        background-position: center bottom;
+        border-bottom-left-radius: 300px;
+    }
+
+    .desc {
+        font-size: 22px;
+    }
+
+    .banner-intro {
+        background-color: transparent;
+        width: 51%;
+    }
+
+    .hero-title {
+        font-size: 5.3rem;
+    }
+
+    /* #endregion Banner 區 */
+
+    /* #region About 區 */
+    #About .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .about-intro {
+        order: 0;
+        width: 35%;
+        text-align: left;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: start;
+    }
+
+    .about-pic {
+        width: 58%;
+        margin-bottom: 20px;
+    }
+
+    .about-pic img {
+        border-top-right-radius: 150px;
+        border-bottom-left-radius: 100px;
+    }
+
+    .section-title {
+        font-size: 3rem;
+        margin-bottom: 20px;
+    }
+
+    .call-group {
+        margin-top: 10px;
+    }
+
+    /* #endregion About 區 */
+
+    /* #region Testimonials 區 */
+    .section-title {
+        width: 100%;
+    }
+
+    .testimonial-card {
+        width: 31%;
+        padding: 3%;
+        gap: 10px;
+    }
+
+    .testimonial-header {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .testimonial-name {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .name {
+        font-family: 'Jost', sans-serif;
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 0px
+    }
+
+    .location {
+        font-size: 14px;
+        color: #888;
+        margin-bottom: 0px;
+    }
+
+    .description {
+        text-align: left;
+        font-size: 22px;
+    }
+
+    .testimonial-wrapper {
+        flex-direction: row;
+        /* 卡片橫向排列 */
+        flex-wrap: wrap;
+        justify-content: center;
+        /* 水平置中排列 */
+        gap: 20px;
+        /* 卡片間距 */
+        border-radius: 50px;
+        /* 四邊圓角設置為 70px */
+    }
+
+    .testimonial-card {
+        flex: 0 0 calc(33.33% - 20px);
+        /* 每個卡片占 33.33% 減去間距 */
+    }
+
+    /* #endregion Testimonials 區 */
+
+    /* #region Projectss 區 */
+    .title-group {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .project-list {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .item {
+        width: 46%;
+        margin-bottom: 50px;
+    }
+
+    /* Feature */
+    .feature-list {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    .feature-list li {
+        width: 30%;
+    }
+
+    /* #endregion Projectss 區 */
+
+    /* #region Article 區 */
+    .article-list {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .article-list li {
+        width: 32%;
+    }
+
+    /* #endregion Article 區 */
+}
