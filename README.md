@@ -1,4 +1,5 @@
 ## 靜態切版作品集
+本專案收錄個人前端切版作品，皆可線上預覽。
 
 ### [首頁](https://leo-chang-97.github.io/Static-Portfolio/)
 
