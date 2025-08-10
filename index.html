@@ -34,18 +34,35 @@
       <nav class="navbar bg-body-tertiary">
         <div class="container">
           <a class="navbar-brand" href="#"> Leo's Portfolio </a>
-          <a class="navbar-item" href="https://github.com/Leo-Chang-97/Static-Portfolio">
+          <a
+            class="navbar-item text-secondary"
+            href="https://github.com/Leo-Chang-97/Static-Portfolio"
+          >
             <i class="fa-brands fa-github fs-5"></i>
           </a>
         </div>
       </nav>
     </header>
     <!-- 內容導航區 -->
-    <div class="page-content mt-5">
-      <div class="container d-flex flex-row flex-wrap gap-5" id="card-list">
+    <div class="page-content my-5">
+      <div
+        class="container d-flex flex-row flex-wrap justify-content-center justify-content-md-start gap-5"
+        id="card-list"
+      >
         <!-- 卡片 -->
       </div>
     </div>
+    <!-- 頁腳 -->
+    <footer
+      class="bg-light py-2"
+    >
+      <div
+        class="container d-flex flex-column align-items-center justify-content-center"
+      >
+        <span>MFEE65-此網站僅供學習及展示用途</span>
+        <span>Copyright&copy;. All Rights Reserved.</span>
+      </div>
+    </footer>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
@@ -94,6 +111,36 @@
           title: "HTML/CSS 學習筆記",
           description: "HTML/CSS",
           link: "https://leo-chang-97.github.io/Static-Portfolio/html-css-note",
+        },
+        {
+          src: "./images/card-08.png",
+          title: "Slideshow 輪播圖元件",
+          description: "JavaScript",
+          link: "https://leo-chang-97.github.io/Static-Portfolio/javascript-practice/slideshow.html",
+        },
+        {
+          src: "./images/card-09.png",
+          title: "Comment 評論區元件",
+          description: "JavaScript",
+          link: "https://leo-chang-97.github.io/Static-Portfolio/javascript-practice/comment.html",
+        },
+        {
+          src: "./images/card-10.png",
+          title: "Tab 標籤切換內容元件",
+          description: "JavaScript",
+          link: "https://leo-chang-97.github.io/Static-Portfolio/javascript-practice/tab.html",
+        },
+        {
+          src: "./images/card-11.png",
+          title: "CRUD模擬後台表格",
+          description: "JavaScript",
+          link: "https://leo-chang-97.github.io/Static-Portfolio/javascript-practice/CRUD.html",
+        },
+        {
+          src: "./images/card-12.png",
+          title: "課程卡片迴圈渲染",
+          description: "JavaScript",
+          link: "https://leo-chang-97.github.io/Static-Portfolio/javascript-practice/course-card",
         },
       ];
       let cardList = document.getElementById("card-list");

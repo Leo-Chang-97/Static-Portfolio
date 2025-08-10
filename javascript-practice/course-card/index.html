@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>課程模擬卡片</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <style></style>
+  </head>
+
+  <body>
+    <!-- 4. box核心內容區域開始 -->
+    <div class="box w">
+      <div class="box-hd">
+        <h3>精選課程瀏覽</h3>
+        <a href="#">查看全部</a>
+      </div>
+      <div class="box-bd">
+        <ul class="clearfix"></ul>
+      </div>
+    </div>
+    <script>
+      // 1. 重構
+      let data = [
+        {
+          src: "./images/course01.webp",
+          title: "智慧應用微軟C#",
+          num: 1125,
+        },
+        {
+          src: "./images/course02.webp",
+          title: "全端工程師就業養成班",
+          num: 357,
+        },
+        {
+          src: "./images/course03.webp",
+          title: "Unity跨平台遊戲開發",
+          num: 22250,
+        },
+        {
+          src: "./images/course04.webp",
+          title: "跨域Java與資料庫",
+          num: 389,
+        },
+        {
+          src: "./images/course05.webp",
+          title: "雲端網路與資安",
+          num: 124,
+        },
+        {
+          src: "./images/course06.webp",
+          title: "智慧製造數據分析",
+          num: 432,
+        },
+        {
+          src: "./images/course07.webp",
+          title: "AIoT智慧物聯網",
+          num: 888,
+        },
+        {
+          src: "./images/course08.webp",
+          title: "前端工程師就業養成班",
+          num: 590,
+        },
+      ];
+
+      const ul = document.querySelector(".box-bd ul");
+      // 1. 根據數據的個數，創建對應的 li
+      for (let i = 0; i < data.length; i++) {
+        // 2. 創建新的 li
+        const li = document.createElement("li");
+        // 4. 把內容給 li
+        li.innerHTML = `
+            <a href="#">
+                <img src=${data[i].src} alt="">
+                <h4>
+                    ${data[i].title}
+                </h4>
+                <div class="info">
+                    <span>熱門</span> • <span>${data[i].num}</span>人正在上課
+                </div>
+            </a>
+        `;
+        // 3. ul 裡面追加 li
+        ul.appendChild(li);
+      }
+    </script>
+  </body>
+</html>

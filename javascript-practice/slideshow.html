@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>08-輪播圖完整版</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .slider {
+        width: 822px;
+        height: 382px;
+        overflow: hidden;
+      }
+
+      .slider-wrapper {
+        width: 100%;
+        height: 302px;
+      }
+
+      .slider-wrapper img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      .slider-footer {
+        height: 80px;
+        background-color: rgb(100, 67, 68);
+        padding: 12px 12px 0 12px;
+        position: relative;
+      }
+
+      .slider-footer .toggle {
+        position: absolute;
+        right: 0;
+        top: 12px;
+        display: flex;
+      }
+
+      .slider-footer .toggle button {
+        margin-right: 12px;
+        width: 28px;
+        height: 28px;
+        appearance: none;
+        border: none;
+        background: rgba(255, 255, 255, 0.1);
+        color: #fff;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .slider-footer .toggle button:hover {
+        background: rgba(255, 255, 255, 0.2);
+      }
+
+      .slider-footer p {
+        margin: 0;
+        color: #fff;
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .slider-indicator {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: flex;
+        align-items: center;
+      }
+
+      .slider-indicator li {
+        width: 8px;
+        height: 8px;
+        margin: 4px;
+        border-radius: 50%;
+        background: #fff;
+        opacity: 0.4;
+        cursor: pointer;
+      }
+
+      .slider-indicator li.active {
+        width: 12px;
+        height: 12px;
+        opacity: 1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="slider">
+      <div class="slider-wrapper">
+        <img src="/images/slider01.jpg" alt="" />
+      </div>
+      <div class="slider-footer">
+        <p>對人類來說會不會太超前了？</p>
+        <ul class="slider-indicator">
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+        <div class="toggle">
+          <button class="prev">&lt;</button>
+          <button class="next">&gt;</button>
+        </div>
+      </div>
+    </div>
+    <script>
+      // 初始數據-物件陣列
+      const data = [
+        {
+          url: "./images/slider01.webp",
+          title: "禮享父親節周末加碼",
+          color: "rgb(9, 34, 85)",
+        },
+        {
+          url: "./images/slider02.webp",
+          title: "拜拜用乖乖 滿額抽好禮",
+          color: "rgb(165, 37, 17)",
+        },
+        {
+          url: "./images/slider03.webp",
+          title: "限時瘋搶5折起 一日驚爆價",
+          color: "rgb(178, 0, 10)",
+        },
+        {
+          url: "./images/slider04.webp",
+          title: "星展PChome Prime聯名卡 新戶首刷禮物",
+          color: "rgb(32, 38, 69)",
+        },
+        {
+          url: "./images/slider05.webp",
+          title: "最舒服的假日生活一起來",
+          color: "rgb(216, 0, 16)",
+        },
+        {
+          url: "./images/slider06.webp",
+          title: "讓你美美又省省",
+          color: "rgb(150, 122, 176)",
+        },
+        {
+          url: "./images/slider07.webp",
+          title: "新世代寶可夢登陸",
+          color: "rgb(25, 163, 209)",
+        },
+        {
+          url: "./images/slider08.webp",
+          title: "誰不想和小貓咪貼貼呢！",
+          color: "rgb(174, 172, 168)",
+        },
+      ];
+
+      // 📌 獲取元素
+      const img = document.querySelector(".slider-wrapper img");
+      const p = document.querySelector(".slider-footer p");
+      const footer = document.querySelector(".slider-footer");
+
+      // 📌 聲明一個渲染的函式來重複使用
+      function toggle() {
+        // 1.4 渲染對應的數據
+        img.src = data[i].url;
+        p.textContent = data[i].title;
+        footer.style.backgroundColor = data[i].color;
+        // 1.5 更換小圓點，先移除原來的類名，當前 li 再添加這個類名
+        document
+          .querySelector(".slider-indicator .active")
+          .classList.remove("active");
+        document
+          .querySelector(`.slider-indicator li:nth-child(${i + 1})`)
+          .classList.add("active");
+      }
+
+      // ✅ 1. 右按鈕業務
+      // 1.1 獲取右側按鈕
+      const next = document.querySelector(".next");
+      let i = 0; // 信號量，等於陣列的索引號，控制播放圖片張數
+      // 1.2 註冊點擊事件
+      next.addEventListener("click", () => {
+        i++;
+        // 1.6 判斷條件，如果大於等於 8，就復原為 0 (第一張索引號0)
+        if (i >= data.length) {
+          i = 0;
+        }
+        // 1.3 得到對應的物件
+        // console.log(data[i]);
+        toggle();
+      });
+
+      // ✅ 2. 左側按鈕業務
+      // 2.1 獲取左側按鈕
+      const prev = document.querySelector(".prev");
+      // 2.2 註冊點擊事件
+      prev.addEventListener("click", () => {
+        i--;
+        // 2.6 判斷條件，如果小於 0，就復原為 7 (最後一張索引號7)
+        if (i < 0) {
+          i = data.length - 1;
+        }
+        // 2.3 得到對應的物件
+        // console.log(data[i]);
+        toggle();
+      });
+
+      // ✅ 3. 自動播放模塊
+      let timer = setInterval(() => {
+        // 利用js自動調用點擊事件 click() 一定加小括號調用函式
+        // next.onclick = function () {}; // 等於這個寫法
+        next.click();
+      }, 1000);
+
+      // ✅ 4. 游標經過大盒子，停止定時器
+      const slider = document.querySelector(".slider");
+      // 註冊游標停止事件
+      slider.addEventListener("mouseenter", () => {
+        // 關閉定時器
+        clearInterval(timer);
+      });
+
+      // ✅ 5. 游標離開大盒子，開啟定時器
+      // 註冊游標離開事件
+      slider.addEventListener("mouseleave", () => {
+        // 關閉定時器
+        clearInterval(timer);
+        // 開啟定時器
+        timer = setInterval(() => {
+          next.click();
+        }, 1500);
+      });
+    </script>
+  </body>
+</html>

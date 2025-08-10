@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>模擬後台練習</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      a {
+        text-decoration: none;
+        color: #721c24;
+      }
+      h1 {
+        text-align: center;
+        color: #333;
+        margin: 20px 0;
+      }
+      table {
+        margin: 0 auto;
+        width: 800px;
+        border-collapse: collapse;
+        color: #004085;
+      }
+      th {
+        padding: 10px;
+        background: #cfe5ff;
+
+        font-size: 20px;
+        font-weight: 400;
+      }
+      td,
+      th {
+        border: 1px solid #b8daff;
+      }
+      td {
+        padding: 10px;
+        color: #666;
+        text-align: center;
+        font-size: 16px;
+      }
+      tbody tr {
+        background: #fff;
+      }
+      tbody tr:hover {
+        background: #e1ecf8;
+      }
+      .info {
+        width: 900px;
+        margin: 50px auto;
+        text-align: center;
+      }
+      .info input,
+      .info select {
+        width: 80px;
+        height: 27px;
+        outline: none;
+        border-radius: 5px;
+        border: 1px solid #b8daff;
+        padding-left: 5px;
+        box-sizing: border-box;
+        margin-right: 15px;
+      }
+      .info button {
+        width: 60px;
+        height: 27px;
+        background-color: #004085;
+        outline: none;
+        border: 0;
+        color: #fff;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+      .info .age {
+        width: 50px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h1>新增會員</h1>
+    <form class="info" autocomplete="off">
+      姓名：<input type="text" class="uname" name="uname" /> 年齡：<input
+        type="text"
+        class="age"
+        name="age"
+      />
+      性別:
+      <select name="gender" class="gender">
+        <option value="男">男</option>
+        <option value="女">女</option>
+      </select>
+      電話：<input type="text" class="salary" name="salary" />
+      居住地城市：<select name="city" class="city">
+        <option value="台北">台北</option>
+        <option value="新北">新北</option>
+        <option value="台中">台中</option>
+        <option value="台南">台南</option>
+        <option value="高雄">高雄</option>
+      </select>
+      <button class="add">新增</button>
+    </form>
+
+    <h1>模擬後台表格</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>學號</th>
+          <th>姓名</th>
+          <th>年齡</th>
+          <th>性別</th>
+          <th>電話</th>
+          <th>居住地</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- 
+        <tr>
+          <td>1001</td>
+          <td>歐陽霸天</td>
+          <td>19</td>
+          <td>男</td>
+          <td>15000</td>
+          <td>上海</td>
+          <td>
+            <a href="javascript:">刪除</a>
+          </td>
+        </tr> 
+        -->
+      </tbody>
+    </table>
+    <script>
+      // 獲取元素
+      const uname = document.querySelector(".uname");
+      const age = document.querySelector(".age");
+      const gender = document.querySelector(".gender");
+      const salary = document.querySelector(".salary");
+      const city = document.querySelector(".city");
+      const tbody = document.querySelector("tbody");
+
+      // 獲取所有帶有 name 屬性的元素，用來驗證有沒有空白欄位
+      const items = document.querySelectorAll("input[name]");
+
+      // 聲明一個空的陣列，增加和刪除都是對這個陣列進行操作
+      const arr = [];
+      // 1️⃣ 登錄模塊
+      // 表單提交事件
+      const info = document.querySelector(".info");
+      info.addEventListener("submit", function (event) {
+        // 阻止默認行為，不跳轉
+        event.preventDefault();
+        // console.log('test');
+
+        /* 這裡進行表單驗證，如果不通過，直接中斷，不需要添加數據
+      先遍歷循環，帶有 name 屬性的元素都是必填項目
+      條件為 trim() 去除空格後，必填項目不得為空 */
+        for (let i = 0; i < items.length; i++) {
+          if (items[i].value.trim() === "") {
+            return alert("有欄位未填");
+          }
+        }
+
+        // 創建新的對象
+        const obj = {
+          stuId: arr.length + 1,
+          uname: uname.value,
+          age: age.value,
+          gender: gender.value,
+          salary: salary.value,
+          city: city.value,
+        };
+        // console.log(obj);
+
+        // 追加給陣列裡面
+        arr.push(obj);
+        // console.log(arr)
+
+        // 清空表單，重置函式：物件.reset()
+        this.reset();
+
+        // 調用渲染函數
+        render();
+      });
+
+      // 2️⃣ 渲染函數模塊，因為增加和刪除都需要渲染
+      function render() {
+        // 先清空 tbody 以前的數據，再渲染最新陣列裡面的數據
+        tbody.innerHTML = "";
+        // 遍歷 arr 陣列
+        for (let i = 0; i < arr.length; i++) {
+          // 生成元素 tr
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+        <tr>
+          <td>${arr[i].stuId}</td>
+          <td>${arr[i].uname}</td>
+          <td>${arr[i].age}</td>
+          <td>${arr[i].gender}</td>
+          <td>${arr[i].salary}</td>
+          <td>${arr[i].city}</td>
+          <td>
+            <a href="javascript:" data-id=${i}>刪除</a>
+          </td>
+        </tr> 
+        `;
+          // 追加元素，父元素.appendChild(子元素)
+          tbody.appendChild(tr);
+        }
+      }
+
+      // 3️⃣ 刪除操作
+      // 採用事件委托形式，給 tbody 註冊點擊事件
+      tbody.addEventListener("click", function (event) {
+        // 判斷是否點擊的是刪除按鈕
+        if (event.target.tagName === "A") {
+          // console.log('test');
+          // 得到當前元素的自定義屬性 data-id (119列生成的)
+          // console.log(event.target.dataset.id);
+
+          // 刪除 arr 陣列裡面對應的數據
+          arr.splice(event.target.dataset.id, 1);
+          console.log(arr);
+
+          // 重新渲染一次，才會顯示刪除數據的陣列的結果
+          render();
+        }
+      });
+    </script>
+  </body>
+</html>

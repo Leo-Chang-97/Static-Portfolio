@@ -12,3 +12,8 @@
 | 仿Flickr切版 | [連結](https://leo-chang-97.github.io/Static-Portfolio/bootstrap/flickr.html) | [連結](./bootstrap/) | &cross; |
 | 電商網站切版 | [連結](https://leo-chang-97.github.io/Static-Portfolio/shop) | [連結](./shop/) | &cross; |
 | HTML/CSS 學習筆記 | [連結](https://leo-chang-97.github.io/Static-Portfolio/html-css-note) | [連結](./html-css-note/) | &cross; |
+| Slideshow 輪播圖元件 | [連結](https://leo-chang-97.github.io/Static-Portfolio/javascript-practice/slideshow.html) | [連結](./javascript-practice/) | &cross; |
+| Comment 評論區元件 | [連結](https://leo-chang-97.github.io/Static-Portfolio/javascript-practice/comment.html) | [連結](./javascript-practice/) | &cross; |
+| Tab 標籤切換內容元件 | [連結](https://leo-chang-97.github.io/Static-Portfolio/javascript-practice/tab.html) | [連結](./javascript-practice/) | &cross; |
+| CRUD模擬後台表格 | [連結](https://leo-chang-97.github.io/Static-Portfolio/javascript-practice/CRUD.html) | [連結](./javascript-practice/) | &cross; |
+| 課程卡片迴圈渲染 | [連結](https://leo-chang-97.github.io/Static-Portfolio/javascript-practice/course-card) | [連結](./javascript-practice/) | &cross; |
