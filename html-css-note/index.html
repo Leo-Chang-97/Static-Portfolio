@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML & CSS筆記</title>
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="./HTML&CSS筆記模板.css" />
+  </head>
+
+  <body>
+    <header>
+      <h1>HTML&CSS筆記</h1>
+    </header>
+
+    <div class="container">
+      <section class="notes">
+        <h2>列表模板</h2>
+        <h3>HTML 相關</h3>
+        <ul>
+          <li><a href="notes/定位的重點.html">定位的重點</a></li>
+          <li><a href="notes/animation-fill-mode（動畫填充模式）.html">animation-fill-mode（動畫填充模式）</a></li>
+          <li><a href="notes/偽類與偽元素整理.html">偽類與偽元素整理</a></li>
+          <li><a href="notes/利用絕對定位置中.html">利用絕對定位置中</a></li>
+          <li><a href="notes/選擇器優先級_權重分級表格.html">選擇器優先級_權重分級表格</a></li>
+          <li><a href="notes/各元素的顯示模式 列表.html">各元素的顯示模式 列表</a></li>
+          <li><a href="notes/浮動解決辦法總整理.html">浮動解決辦法總整理</a></li>
+          <li><a href="notes/CSS複合屬性_總整理.html">CSS複合屬性_總整理</a></li>
+          <li><a href="notes/margin塌陷問題補充.html">margin塌陷問題補充</a></li>
+          <li><a href="notes/垂直置中總整理.html">垂直置中總整理</a></li>
+          <li><a href="notes/布局小技巧筆記.html">布局小技巧筆記</a></li>
+        </ul>
+      </section>
+
+      <section id="code-teaching">
+        <h2>HTML 標題教學</h2>
+
+        <h3>標題的定義</h3>
+
+        <div class="info-box note">
+          在HTML中，<strong>&lt;h1&gt;</strong> 到
+          <strong>&lt;h6&gt;</strong>
+          標籤用於定義標題，數字越小代表標題層級越高。
+        </div>
+
+        <h3>HTML</h3>
+
+        <pre><code>&lt;h1&gt;這是一個主標題&lt;/h1&gt;
+&lt;p&gt;這是一段描述文字。&lt;/p&gt;</code></pre>
+        <div class="info-box summary">
+          <strong>&lt;h1&gt;</strong> 標籤是用來定義最重要的主標題。<br />
+          <strong>&lt;p&gt;</strong> 標籤則用於包裹一般的段落文字。
+        </div>
+
+        <h2>CSS 樣式教學</h2>
+
+        <h3>CSS 的定義</h3>
+
+        <div class="info-box note">
+          使用CSS來設計標題和段落的樣式，讓網頁更加美觀。
+        </div>
+
+        <h3>CSS</h3>
+
+        <pre><code>h1 {
+    color: #00796b;
+    font-size: 28px;
+}
+
+p {
+    color: #555;
+    font-size: 16px;
+}</code></pre>
+
+        <div class="info-box summary">
+          <strong>h1</strong> 標籤設定為深綠色，字體大小為28px。<br />
+          <strong>p</strong> 標籤設定為灰色，字體大小為16px。
+        </div>
+      </section>
+
+      <section>
+        <h2>Info / Summary 列表</h2>
+        <div class="info-box note">
+          <ul>
+            <li>
+              若子元素為行內元素或行內塊元素，給父元素加上:
+              <code>text-align: center;</code>。
+            </li>
+            <li>
+              若子元素為塊元素，給父元素加上: <code>margin: auto;</code>。
+            </li>
+          </ul>
+        </div>
+
+        <div class="info-box summary">
+          <ul>
+            <li><strong>font、background、border</strong> 需要遵守順序。</li>
+            <li>
+              <strong>list-style、flex</strong> 的順序可以變動，但值必須有效。
+            </li>
+            <li>如果不確定縮寫順序，建議拆成單獨屬性，確保正確性。</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>正確示範/錯誤示範模板</h2>
+
+        <p class="label valid-label">✅ 正確範例</p>
+        <pre class="info-box valid">
+div {
+    background: #f00 url("bg.jpg") no-repeat center/cover fixed;
+}</pre
+        >
+        <p class="label invalid-label">❌ 錯誤範例</p>
+        <pre class="info-box invalid">
+div {
+    background: center/cover #f00 fixed url("bg.jpg") no-repeat;
+}</pre
+        >
+      </section>
+
+      <section>
+        <h2>優點/缺點模板</h2>
+
+        <h3>單行</h3>
+        <div>
+          <p class="info-box pros">
+            <strong class="valid-label">✅ 優點：</strong>
+            符合標準行為，清楚直覺，不影響其他 CSS 行為。
+          </p>
+          <p class="info-box cons">
+            <strong class="invalid-label">❌ 缺點：</strong> 會佔用內部空間（但
+            1px 幾乎無感）。
+          </p>
+        </div>
+
+        <h3>多行列表</h3>
+        <div>
+          <p class="label valid-label">✅ 優點</p>
+          <div class="info-box pros">
+            <ul>
+              <li>語義清晰，專門為清除浮動設計。</li>
+              <li>兼容性好，在大多數瀏覽器中都能正確運作。</li>
+              <li>不會隱藏超出內容（相比 overflow: hidden 更靈活）。</li>
+            </ul>
+          </div>
+          <p class="label invalid-label">❌ 缺點</p>
+          <div class="info-box cons">
+            <ul>
+              <li>內容溢出會被裁剪，不適合需要顯示超出內容的情況。</li>
+              <li>如果有陰影或下拉選單，可能會被截斷。</li>
+              <li>
+                對於某些情況下的滾動或絕對定位元素，可能導致意料之外的結果。
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="table-template">
+        <h2>表格模板</h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>項目</th>
+              <th>描述</th>
+              <th>範例</th>
+              <th>備註</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>HTML</td>
+              <td>超文本標記語言</td>
+              <td class="example-code">&lt;div&gt;&lt;/div&gt;</td>
+              <td>結構化網頁內容</td>
+            </tr>
+            <tr>
+              <td>CSS</td>
+              <td>層疊樣式表</td>
+              <td class="example-code">color: red;</td>
+              <td>設計網頁樣式</td>
+            </tr>
+            <tr>
+              <td>JavaScript</td>
+              <td>網頁互動性</td>
+              <td class="example-code">alert('Hello');</td>
+              <td>增加動態效果</td>
+            </tr>
+            <tr>
+              <td>Python</td>
+              <td>後端程式語言</td>
+              <td class="example-code">print("Hello")</td>
+              <td>伺服器開發</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section id="list-template">
+        <h2>列表模板</h2>
+        <h3>HTML 相關</h3>
+        <ul>
+          <li>結構化內容</li>
+          <li>使用標籤如 &lt;div&gt;, &lt;p&gt;</li>
+          <li>設定屬性如 class, id</li>
+        </ul>
+        <h3>CSS 相關</h3>
+        <ul>
+          <li>選擇器使用</li>
+          <li>顏色與排版設定</li>
+          <li>響應式設計</li>
+        </ul>
+        <h3>JavaScript 相關</h3>
+        <ul>
+          <li>基礎語法</li>
+          <li>事件處理</li>
+          <li>DOM 操作</li>
+        </ul>
+      </section>
+    </div>
+  </body>
+</html>

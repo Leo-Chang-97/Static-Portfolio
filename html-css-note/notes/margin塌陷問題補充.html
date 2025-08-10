@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>16-筆記_margin塌陷問題補充</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../HTML&CSS筆記模板.css">
+</head>
+
+<body>
+    <div class="container">
+    <header>
+        <h1>塊級元素的外邊距塌陷（Margin Collapse）</h1>
+    </header>
+    <section>
+        <h2>Margin 塌陷的原因</h2>
+        <p>當父元素內的第一個子元素有 <code>margin-top</code>，而父元素本身沒有 <code>padding</code> 或 <code>border</code>，該
+            <code>margin-top</code> 會與父元素的 <code>margin-top</code> 合併，導致父元素整體下移。</p>
+    </section>
+
+    <section>
+        <h2>解決 Margin 塌陷的方法</h2>
+        <h3>📌 方法 1：加 padding-top 或 border-top</h3>
+        <pre>.outer {
+    padding-top: 1px; /* 或 border-top: 1px solid transparent; */
+}</pre>
+    <div>
+        <p class="info-box pros"><strong class="valid-label">✅ 優點：</strong> 符合標準行為，清楚直覺，不影響其他 CSS 行為。</p>
+        <p class="info-box cons"><strong  class="invalid-label">❌ 缺點：</strong> 會佔用內部空間（但 1px 幾乎無感）。</p>
+    </div>
+
+        <h3>📌 方法 2：使用 overflow: hidden;</h3>
+        <pre>.outer {
+    overflow: hidden;
+}</pre>
+    <div>
+        <p class="info-box pros"><strong class="valid-label">✅ 優點：</strong> 可同時解決浮動元素高度塌陷，適用於清除浮動。</p>
+        <p class="info-box cons"><strong  class="invalid-label">❌ 缺點：</strong> 可能會隱藏超出內容，影響滾動行為。</p>
+    </div>
+
+        <h3>📌 方法 3：使用 display: flex; 或 display: grid;</h3>
+        <pre>.outer {
+    display: flex;
+    flex-direction: column;
+}</pre>
+    <div>
+        <p class="info-box pros"><strong class="valid-label">✅ 優點：</strong> 適合現代 CSS 佈局，自動避免塌陷。</p>
+        <p class="info-box cons"><strong  class="invalid-label">❌ 缺點：</strong> 會改變內部元素的行為，需額外調整。</p>
+    </div>
+    </section>
+
+    <section>
+        <h2>方法比較表</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>方法</th>
+                    <th>✅優點</th>
+                    <th>❌缺點</th>
+                    <th>適用情境</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>padding-top / border-top</td>
+                    <td>符合標準行為，清楚直覺</td>
+                    <td>可能影響內部佈局</td>
+                    <td>一般情況，最推薦</td>
+                </tr>
+                <tr>
+                    <td>overflow: hidden;</td>
+                    <td>適用於清除浮動，完全避免塌陷</td>
+                    <td>可能影響滾動和隱藏內容</td>
+                    <td>當 <code>.outer</code> 內有浮動元素時</td>
+                </tr>
+                <tr>
+                    <td>display: flex; / grid;</td>
+                    <td>適用於現代 CSS 佈局</td>
+                    <td>改變內部元素行為</td>
+                    <td>當 <code>.outer</code> 已經在用 flexbox / grid</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </section>
+</body>
+
+</html>

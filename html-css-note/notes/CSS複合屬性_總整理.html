@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>15-筆記_CSS複合屬性_總整理</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../HTML&CSS筆記模板.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS 縮寫屬性筆記</h1>
+        </header>
+        <section>
+            <h2>1. 需要遵守順序的縮寫屬性</h2>
+
+            <h3>(1) font</h3>
+
+            <div class="info-box note">
+                <strong>正確順序：</strong><code>font: [style] [variant] [weight] [size]/[line-height] [family]</code>
+            </div>
+
+            <p class="label valid-label">✅ 正確範例</p>
+            <pre class="info-box valid">p {
+    font: italic small-caps bold 16px/1.5 "Arial", sans-serif;
+}</pre>
+
+            <p class="label invalid-label">❌ 錯誤範例</p>
+            <pre class="info-box invalid">p {
+    font: "Arial", sans-serif bold italic small-caps 16px/1.5;
+}</pre>
+
+            <div class="info-box summary">
+                <strong>注意：</strong>font-size 是必要的，且必須出現在 font-family 之前。font-family 一定要放在最後，否則無法解析。
+            </div>
+
+            <h3>(2) background</h3>
+
+            <div class="info-box note">
+                <strong>正確順序：</strong><code>background: [color] [image] [position] / [size] [repeat] [attachment] [origin] [clip]</code>
+            </div>
+
+            <p class="label valid-label">✅ 正確範例</p>
+            <pre class="info-box valid">div {
+    background: #f00 url("bg.jpg") no-repeat center/cover fixed;
+}</pre>
+            <p class="label invalid-label">❌ 錯誤範例</p>
+            <pre class="info-box invalid">div {
+    background: center/cover #f00 fixed url("bg.jpg") no-repeat;
+}</pre>
+
+            <div class="info-box summary">
+                <strong>注意：</strong>background-position 和 background-size 之間必須用 <code>/</code> 分隔。background-color 不能放在
+                background-size 之後。
+            </div>
+
+            <h3>(3) border</h3>
+
+            <div class="info-box note">
+                <strong>正確順序：</strong><code>border: [width] [style] [color]</code>
+            </div>
+
+            <p class="label valid-label">✅ 正確範例</p>
+            <pre class="info-box valid">div {
+    border: 2px solid red;
+}</pre>
+            <p class="label invalid-label">❌ 錯誤範例</p>
+            <pre class="info-box invalid">div {
+    border: solid red 2px;
+}</pre>
+
+            <div class="info-box summary">
+                <strong>注意：</strong>border-style 必須出現在 border-width 之後，否則可能會無效。
+            </div>
+        </section>
+        <section>
+            <h2>2. 不一定要遵守順序的縮寫屬性</h2>
+
+            <h3>(1) list-style</h3>
+            <p class="label valid-label">✅ 正確範例</p>
+            <pre class="info-box valid">ul {
+    list-style: circle inside;
+}
+ul {
+    list-style: inside circle;
+}</pre>
+
+            <p class="label invalid-label">❌ 錯誤範例</p>
+            <pre class="info-box invalid">ul {
+    list-style: inside 10px; /* 無效 */
+}</pre>
+
+            <h3>(2) flex</h3>
+            <p class="label valid-label">✅ 正確範例</p>
+            <pre class="info-box valid">div {
+    flex: 1 0 50%;
+}
+div {
+    flex: 1 50%;
+}</pre>
+        </section>
+        <h2>結論</h2>
+        <div class="info-box summary">
+            <ul>
+                <li><strong>font、background、border</strong> 需要遵守順序。</li>
+                <li><strong>list-style、flex</strong> 的順序可以變動，但值必須有效。</li>
+                <li>如果不確定縮寫順序，建議拆成單獨屬性，確保正確性。</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>

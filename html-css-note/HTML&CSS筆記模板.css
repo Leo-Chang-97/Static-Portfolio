@@ -1,0 +1,208 @@
+/* 全局樣式 */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+:root {
+    /* 顏色變數 */
+    --color-primary: #4db6ac;
+    --color-secondary: #00796b;
+    --color-light-bg: #f9f9f9;
+    --color-dark-text: #333;
+    --color-note-bg: #fffbe0;
+    --color-note-border: #f09f27;
+    --color-summary-bg: #e0f7fa;
+    --color-summary-border: #567ebb;
+    --color-pros-bg: #e8f5e9;
+    --color-pros-border: #4caf50;
+    --color-cons-bg: #ffebee;
+    --color-cons-border: #f44336;
+    --color-valid-bg: #e8f5e9;
+    --color-valid-border: #4caf50;
+    --color-valid-text: #2e7d32;
+    --color-invalid-bg: #ffebee;
+    --color-invalid-border: #e57373;
+    --color-invalid-text: #c62828;
+
+    /* 字體變數 */
+    --font-body: 'Microsoft Jhenghei', 'Arial', sans-serif;
+    --font-mono: "Consolas", "Courier New", monospace;
+
+    /* 間距與圓角 */
+    --spacing-small: 5px;
+    --spacing-medium: 15px;
+    --spacing-large: 30px;
+    --border-radius: 8px;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding: var(--spacing-large);
+    background-color: var(--color-light-bg);
+}
+
+/* 主容器樣式 */
+.container {
+    max-width: 1000px;
+    margin: auto;
+    background: #fff;
+    padding: var(--spacing-large);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: var(--border-radius);
+}
+
+/* 標頭樣式 */
+header {
+    color: var(--color-primary);
+    padding: var(--spacing-small);
+    text-align: center;
+    border-radius: var(--border-radius);
+}
+
+/* 區塊樣式 */
+section {
+    margin-bottom: 50px;
+}
+
+/* 標題樣式 */
+h2 {
+    border-bottom: 2px solid var(--color-primary);
+    padding-bottom: var(--spacing-small);
+}
+
+h3 {
+    color: var(--color-secondary);
+    margin-bottom: 0px;
+}
+
+/* 表格樣式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: var(--spacing-small) auto;
+    border-radius: 4px;
+    overflow: hidden;
+    text-align: left;
+    table-layout: auto;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: var(--spacing-small);
+}
+
+th {
+    background-color: #e0f2f1;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f1f8e9;
+}
+
+/* 列表樣式 */
+ul,
+ol {
+    margin: 0;
+    padding-inline-start: var(--spacing-medium);
+    /* list-style: none; */
+}
+
+/* 預格式化與代碼樣式 */
+pre,
+code,
+.example-code {
+    font-family: var(--font-mono);
+}
+
+pre {
+    background: #f0f4f8;
+    color: var(--color-dark-text);
+    padding: var(--spacing-medium);
+    padding-left: var(--spacing-large);
+    border-radius: 4px;
+    overflow-x: auto;
+    border: 1px solid #ccc;
+    margin-top: 0px;
+}
+
+code {
+    background-color: #f4f4f4;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-family: Consolas, "Courier New", monospace;
+}
+
+.example-code {
+    color: #d63384;
+}
+
+/* 信息框樣式 */
+.info-box {
+    margin: var(--spacing-medium) auto;
+    padding: var(--spacing-medium);
+    border-left: 4px solid;
+    border-radius: 4px;
+}
+
+.note {
+    background: var(--color-note-bg);
+    border-color: var(--color-note-border);
+}
+
+.note strong {
+    color: var(--color-note-border);
+}
+
+.summary {
+    background: var(--color-summary-bg);
+    border-color: var(--color-summary-border);
+}
+
+.summary strong {
+    color: var(--color-summary-border);
+}
+
+.pros {
+    background-color: var(--color-pros-bg);
+    border-color: var(--color-pros-border);
+}
+
+.pros strong {
+    color: var(--color-pros-border);
+}
+
+.cons {
+    background-color: var(--color-cons-bg);
+    border-color: var(--color-cons-border);
+}
+
+/* 表單驗證樣式 */
+.valid {
+    background-color: var(--color-valid-bg);
+    border: 1px solid var(--color-valid-border);
+    color: var(--color-valid-text);
+}
+
+.invalid {
+    background-color: var(--color-invalid-bg);
+    border: 1px solid var(--color-invalid-border);
+    color: var(--color-invalid-text);
+}
+
+.label {
+    font-weight: bold;
+    padding: var(--spacing-small);
+    margin: var(--spacing-medium) auto 0;
+}
+
+.valid-label {
+    color: var(--color-valid-text);
+}
+
+.invalid-label {
+    color: var(--color-invalid-text);
+}

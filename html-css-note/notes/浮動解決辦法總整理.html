@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>05-筆記_浮動解決辦法總整理</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../HTML&CSS筆記模板.css">
+    <style>
+        .example {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .float-left {
+            float: left;
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .float-right {
+            float: right;
+            width: 100px;
+            height: 100px;
+            background-color: #e74c3c;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+        }
+
+        .clearfix::after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+
+        .flex-container,
+        .grid-container {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .item {
+            background-color: #2ecc71;
+            padding: 20px;
+            text-align: center;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Float 解決方案筆記</h1>
+        </header>
+        <section>
+            <h2>1. 使用 clearfix（推薦做法）</h2>
+            <div class="info-box note">
+                解決浮動元素脫離父元素問題，適用於多數情況。
+            </div>
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}</code></pre>
+            </div>
+
+            <h3>HTML</h3>
+            <div class="code">
+                <pre><code>&lt;div class="parent clearfix"&gt;
+    &lt;div class="child float-left"&gt;Item 1&lt;/div&gt;
+    &lt;div class="child float-right"&gt;Item 2&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="example clearfix">
+                <div class="float-left">Left</div>
+                <div class="float-right">Right</div>
+            </div>
+            <div>
+                <p class="label valid-label">✅ 優點</p>
+                <div class="info-box pros">
+                    <ul>
+                        <li>語義清晰，專門為清除浮動設計。</li>
+                        <li>兼容性好，在大多數瀏覽器中都能正確運作。</li>
+                        <li>不會隱藏超出內容（相比 overflow: hidden 更靈活）。</li>
+                    </ul>
+                </div>    
+                <p class="label invalid-label">❌ 缺點</p>
+                <div class="info-box cons">
+                    <ul>
+                        <li>需要額外的 CSS 類別，稍微增加了 HTML 的複雜度。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>2. 使用 overflow 屬性</h2>
+            <div class="info-box note">
+                快速解決浮動，但注意內容溢出情況。
+            </div>
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>.parent {
+    overflow: hidden;
+}</code></pre>
+            </div>
+
+            <div class="example" style="overflow: hidden;">
+                <div class="float-left">Left</div>
+                <div class="float-right">Right</div>
+            </div>
+            <div>
+                <p class="label valid-label">✅ 優點</p>
+                <div class="info-box pros">
+                    <ul>
+                        <li>簡單易懂，一行程式碼即可。</li>
+                        <li>不需要額外的 clearfix 類別。</li>
+                    </ul>
+                </div>
+                <p class="label invalid-label">❌ 缺點</p>
+                <div class="info-box cons">
+                    <ul>
+                        <li>內容溢出會被裁剪，不適合需要顯示超出內容的情況。</li>
+                        <li>如果有陰影或下拉選單，可能會被截斷。</li>
+                        <li>對於某些情況下的滾動或絕對定位元素，可能導致意料之外的結果。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>3. 使用 display: flow-root（現代做法）</h2>
+            <div class="info-box note">
+                簡潔且現代的方式，適合新專案。
+            </div>
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>.parent {
+    display: flow-root;
+}</code></pre>
+            </div>
+
+            <div class="example" style="display: flow-root;">
+                <div class="float-left">Left</div>
+                <div class="float-right">Right</div>
+            </div>
+            <div>
+                <p class="label valid-label">✅ 優點</p>
+                <div class="info-box pros">
+                    <ul>
+                        <li>現代且簡潔，不需要額外結構。</li>
+                        <li>不會裁切內容，兼具 clearfix 和 overflow 的優點。</li>
+                        <li>更語義化，且不會影響內部元素的定位。</li>
+                    </ul>
+                </div>
+                <p class="label invalid-label">❌ 缺點</p>
+                <div class="info-box cons">
+                    <ul>
+                        <li>需要考慮舊版瀏覽器兼容性，像 IE 不支援。</li>
+                        <li>舊專案中可能不適合直接使用。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>4. 給父元素設定固定 height</h2>
+            <div class="info-box note">
+                適用於內容高度已知且固定的情況。
+            </div>
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>.parent {
+    height: 100px;
+}</code></pre>
+            </div>
+
+            <div class="example" style="height: 100px;">
+                <div class="float-left">Left</div>
+                <div class="float-right">Right</div>
+            </div>
+            <div>
+                <p class="label valid-label">✅ 優點</p>
+                <div class="info-box pros">
+                    <ul>
+                        <li>簡單直接，避免了高度塌陷。</li>
+                    </ul>
+                </div>
+                <p class="label invalid-label">❌ 缺點</p>
+                <div class="info-box cons">
+                    <ul>
+                        <li>不靈活，如果子元素高度改變，父元素不會自動調整。</li>
+                        <li>不適合動態內容。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>5. 手動插入清除浮動元素</h2>
+            <div class="info-box note">
+                不推薦，但適合快速解決問題。
+            </div>
+            <h3>HTML</h3>
+            <div class="code">
+                <pre><code>&lt;div class="parent"&gt;
+    &lt;div class="child float-left"&gt;Item 1&lt;/div&gt;
+    &lt;div class="child float-right"&gt;Item 2&lt;/div&gt;
+    &lt;div style="clear: both;"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <div class="example">
+                <div class="float-left">Left</div>
+                <div class="float-right">Right</div>
+                <div style="clear: both;"></div>
+            </div>
+            <div>
+                <p class="label valid-label">✅ 優點</p>
+                <div class="info-box pros">
+                    <ul>
+                        <li>立即有效，不需要寫額外 CSS。</li>
+                    </ul>
+                </div>
+                <p class="label invalid-label">❌ 缺點</p>
+                <div class="info-box cons">
+                    <ul>
+                        <li>HTML結構不乾淨，多了多餘的元素。</li>
+                        <li>破壞語義結構，不推薦。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>6. 改用 Flexbox（現代解法）</h2>
+            <div class="info-box note">
+                適合彈性布局，簡潔易用。
+            </div>
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>.flex-container {
+    display: flex;
+    justify-content: space-between;
+}</code></pre>
+            </div>
+
+            <div class="example flex-container">
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+            </div>
+            <div>
+                <p class="label valid-label">✅ 優點</p>
+                <div class="info-box pros">
+                    <ul>
+                        <li>簡潔且功能強大，更容易實現現代布局。</li>
+                        <li>自動處理對齊、間距、高度撐開。</li>
+                    </ul>
+                </div>
+                <p class="label invalid-label">❌ 缺點</p>
+                <div class="info-box cons">
+                    <ul>
+                        <li>舊版瀏覽器支援不佳，特別是 IE。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>7. 改用 CSS Grid（現代解法）</h2>
+            <div class="info-box note">
+                適用於更複雜且結構明確的布局。
+            </div>
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}</code></pre>
+            </div>
+
+            <div class="example grid-container">
+                <div class="item">Item 1</div>
+                <div class="item">Item 2</div>
+            </div>
+            <div>
+                <p class="label valid-label">✅ 優點</p>
+                <div class="info-box pros">
+                    <ul>
+                        <li>非常適合複雜的布局。</li>
+                        <li>提供強大的網格系統，便於控制元素對齊和排列。</li>
+                    </ul>
+                </div>
+                <p class="label invalid-label">❌ 缺點</p>
+                <div class="info-box cons">
+                    <ul>
+                        <li>舊版瀏覽器支援不佳，特別是 IE。</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

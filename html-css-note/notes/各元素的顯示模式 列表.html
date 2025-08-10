@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03-筆記_各元素的顯示模式 列表</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../HTML&CSS筆記模板.css">
+</head>
+<body>
+    <div class="container">
+    <header>
+        <h1>HTML 元素顯示模式</h1>
+    </header>
+    <section>
+        <h2>📌 塊級元素（Block Elements）</h2>
+        <div class="info-box note">
+        <strong>特性：</strong> 塊級元素會<strong>獨佔一整行</strong>，並且會自動擴展寬度以填滿父容器。它們可以包含其他塊級或行內元素。
+        </div>
+        <h3>根元素：</h3>
+        <pre>&lt;html&gt;, &lt;body&gt;</pre>
+        <h3>排版相關標籤：</h3>
+        <pre>&lt;h1&gt; - &lt;h6&gt;, &lt;hr&gt;, &lt;p&gt;, &lt;pre&gt;, &lt;div&gt;</pre>
+        <h3>列表相關標籤：</h3>
+        <pre>&lt;ul&gt;, &lt;ol&gt;, &lt;li&gt;, &lt;dl&gt;, &lt;dt&gt;, &lt;dd&gt;</pre>
+        <h3>表格相關標籤：</h3>
+        <pre>&lt;table&gt;, &lt;tbody&gt;, &lt;thead&gt;, &lt;tfoot&gt;, &lt;tr&gt;, &lt;caption&gt;</pre>
+        <h3>表單相關標籤：</h3>
+        <pre>&lt;form&gt;</pre>
+    </section>
+    <section>
+        <h2>📌 行內元素（Inline Elements）</h2>
+        <div class="info-box note">
+        <strong>特性：</strong> 行內元素<strong>不會換行</strong>，只佔據它所需的空間，寬度與內容匹配。行內元素通常只能包含文本或其他行內元素。
+        </div>
+        <h3>文字格式化標籤：</h3>
+        <pre>&lt;br&gt;, &lt;em&gt;, &lt;strong&gt;, &lt;sup&gt;, &lt;sub&gt;, &lt;del&gt;, &lt;ins&gt;</pre>
+        <h3>超連結與標籤相關：</h3>
+        <pre>&lt;a&gt;, &lt;label&gt;, &lt;span&gt;</pre>
+    </section>
+    <section>
+        <h2>📌 行內區塊元素（Inline-block Elements）</h2>
+        <div class="info-box note">
+        <strong>特性：</strong> 行內塊級元素與行內元素類似，但<strong>可以設定寬度和高度</strong>，而且不會強制換行。
+        </div>
+        <h3>圖片相關標籤：</h3>
+        <pre>&lt;img&gt;</pre>
+        <h3>表格單元格：</h3>
+        <pre>&lt;td&gt;, &lt;th&gt;</pre>
+        <h3>表單相關標籤：</h3>
+        <pre>&lt;input&gt;, &lt;textarea&gt;, &lt;select&gt;, &lt;button&gt;</pre>
+        <h3>內嵌框架：</h3>
+        <pre>&lt;iframe&gt;</pre>
+    </section>
+    </div>
+</body>
+</html>

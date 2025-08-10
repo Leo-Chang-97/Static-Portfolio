@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24-筆記_布局小技巧筆記.html</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../HTML&CSS筆記模板.css">
+    <style>
+        /* 行內元素、行內塊元素可被父元素當作文本處理 */
+        .div1 {
+            background: #f0f4f8;
+            border: 1px solid #ccc;
+            height: 50px;
+            text-align: center;
+            /* 水平對齊 */
+        }
+
+        .span1 {
+            background: lightgreen;
+            line-height: 50px;
+            /* 設置行高 */
+        }
+
+        /* 行內元素或行內塊元素水平置中 */
+        .inline-horizontal-parent {
+            background: #f0f4f8;
+            border: 1px solid #ccc;
+            height: 50px;
+            text-align: center;
+            /* 水平對齊 */
+        }
+
+        .inline-horizontal-child {
+            background: lightgreen;
+        }
+
+        /* 塊元素水平置中 */
+        .block-horizontal-parent {
+            background: #f0f4f8;
+            border: 1px solid #ccc;
+            height: 150px;
+        }
+
+        .block-horizontal-child {
+            text-align: center;
+            line-height: 100px;
+
+            width: 100px;
+            height: 100px;
+
+            background: lightblue;
+            margin: auto;
+            /* 水平置中 */
+        }
+
+        /* 行內元素或行內塊元素垂直置中 */
+        .inline-vertical-parent {
+            background: #f0f4f8;
+            border: 1px solid #ccc;
+            height: 200px;
+            line-height: 200px;
+            font-size: 0px;
+        }
+
+        .inline-vertical-child1 {
+            font-size: 20px;
+            background: lightgreen;
+        }
+
+        .inline-vertical-child2 {
+            font-size: 30px;
+            background: lightyellow;
+        }
+
+        .inline-vertical-child3 {
+            font-size: 40px;
+            background: lightpink;
+        }
+
+        .inline-vertical-child1,
+        .inline-vertical-child2,
+        .inline-vertical-child3 {
+            vertical-align: middle;
+        }
+
+        /* 塊元素垂直置中 */
+        .block-vertical-parent {
+            background: #f0f4f8;
+            border: 1px solid #ccc;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .block-vertical-child {
+            text-align: center;
+            line-height: 100px;
+
+            width: 100px;
+            height: 100px;
+
+            background: lightblue;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>佈局小技巧總整理</h1>
+        <section>
+            <h2>1.行內元素、行內塊元素可被父元素當作文本處理</h2>
+            <div class="info-box note">
+                行內元素、行內塊元素可使用與文本類似的方式進行對齊處理，例如：<code>text-align</code>、<code>line-height</code>、<code>text-indent</code>等。
+            </div>
+            <div class="div1">
+                <span class="span1">行內元素</span>
+            </div>
+        </section>
+
+        <section>
+            <h2>2.讓子元素在父元素中水平置中</h2>
+            <div class="info-box note">
+                <ul>
+                    <li>若子元素為行內元素或行內塊元素，給父元素加上: <code>text-align: center;</code>。</li>
+                    <li>若子元素為塊元素，給父元素加上: <code>margin: auto;</code>。</li>
+                </ul>
+            </div>
+            <div class="inline-horizontal-parent">
+                <span class="inline-horizontal-child">行內元素</span>
+            </div>
+            <br>
+            <div class="block-horizontal-parent">
+                <div class="block-horizontal-child">塊元素</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>3.讓子元素在父元素中垂直置中</h2>
+            <div class="info-box note">
+                <ul>
+                    <li>若子元素為行內元素、行內塊元素：讓父元素的<code>height</code> = <code>line-height</code>，並讓每個子元素加上：<br>
+                        <code>vertical-align: middle;</code>。<strong>補充：</strong>若想絕對垂直置中，父元素<code>font-size</code> 設置為0
+                    </li>
+                    <li>若子元素為塊元素，給子元素加上: <code>margin-top: </code>值為：(父元素 <code>content</code> - 子元素盒子總高)/2。</li>
+                </ul>
+            </div>
+            <div class="inline-vertical-parent">
+                <span class="inline-vertical-child1">行內元素1</span><span class="inline-vertical-child2">行內元素2</span><span
+                    class="inline-vertical-child3">行內元素3</span>
+            </div>
+            <br>
+            <div class="block-vertical-parent">
+                <div class="block-vertical-child">塊元素</div>
+            </div>
+        </section>
+    </div>
+</body>

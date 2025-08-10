@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24-筆記_垂直置中總整理</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../HTML&CSS筆記模板.css">
+    <style>
+        /* code {
+            font-family: "Consolas", "Courier New", monospace;
+            color: #9b6c54;
+            background-color: #ececec;
+            border-radius: 5px;
+            padding: 3px;
+            font-size: 16px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>常見的垂直置中方法</h1>
+        </header>
+        <section>
+            <h2>1.使用 <code>vertical-align</code>（適用於 inline 或 inline-block 元素）</h2>
+            <h3>適用情境：</h3>
+            <div class="info-box note">
+                <ul>
+                    <li>只能用於行內元素（如 <code>&lt;span&gt;</code>、<code>&lt;img&gt;</code>）。</li>
+                    <li>必須確保父元素有適當的<code>line-height</code>。</li>
+                </ul>
+            </div>
+            <pre>div {
+&nbsp;&nbsp;height: 100px;
+&nbsp;&nbsp;border: 1px solid black;
+&nbsp;&nbsp;line-height: 100px; /* 確保文本基線與容器高度一致 */
+}
+span, img {
+&nbsp;&nbsp;vertical-align: middle; /* 將行內元素的基線與容器的中線對齊 */
+}
+</pre>
+            <div class="info-box summary">
+                注意：<code>vertical-align: middle;</code> 並不是真的「垂直置中」，而是讓元素的基線與容器中線對齊，因此有時仍需微調
+                <code>line-height</code> 或 <code>display: inline-block;</code>。
+            </div>
+        </section>
+
+        <section>
+            <h2>2.使用 <code>line-height</code>（適用於單行文字）</h2>
+            <h3>適用情境：</h3>
+            <div class="info-box note">
+                <ul>
+                    <li>只適用於單行文本，不適用於多行。</li>
+                    <li>讓 <code>line-height</code> 等於 <code>height</code>，文字就會置中。</li>
+                </ul>
+            </div>
+            <pre>div {
+&nbsp;&nbsp;height: 100px;
+&nbsp;&nbsp;line-height: 100px; /* 讓文字基線與容器高度一致 */
+&nbsp;&nbsp;text-align: center;
+&nbsp;&nbsp;border: 1px solid black;
+}</pre>
+
+            <p class="info-box summary">這種方法很簡單，但如果有多行文字，就會變得不實用。</p>
+        </section>
+
+        <section>
+            <h2>3.使用 <code>display: flex;</code>（適用於所有元素，最推薦）</h2>
+            <h3>適用情境：</h3>
+            <div class="info-box note">
+                <ul>
+                    <li>適用於區塊級（block）元素，不論是單個元素或多個元素都有效。</li>
+                    <li>現代 CSS 最推薦的方式。</li>
+                </ul>
+            </div>
+            <pre>div {
+&nbsp;&nbsp;display: flex;
+&nbsp;&nbsp;align-items: center; /* 垂直置中 */
+&nbsp;&nbsp;justify-content: center; /* 水平置中 */
+&nbsp;&nbsp;height: 100px;
+&nbsp;&nbsp;border: 1px solid black;
+}</pre>
+
+            <p class="info-box summary">這種方法最通用，適用於任何情境。</p>
+        </section>
+
+        <section>
+            <h2>4.使用 <code>display: grid;</code>（適用於所有元素）</h2>
+            <h3>適用情境：</h3>
+            <div class="info-box note">
+                <ul>
+                    <li>適用於區塊級（block）元素，可搭配 <code>place-items: center;</code> 一行搞定。</li>
+                    <li>適合需要更複雜的版面配置。</li>
+                </ul>
+            </div>
+            <pre>div {
+&nbsp;&nbsp;display: grid;
+&nbsp;&nbsp;place-items: center; /* 相當於 align-items 和 justify-items 都是 center */
+&nbsp;&nbsp;height: 100px;
+&nbsp;&nbsp;border: 1px solid black;
+}</pre>
+
+            <p class="info-box summary">這種方式比 flexbox 更簡潔，特別適合 單一元素 的置中需求。</p>
+        </section>
+
+        <section>
+            <h2>5.使用 <code>position: absolute;</code> + <code>transform</code>（適用於固定大小元素）</h2>
+            <h3>適用情境：</h3>
+            <div class="info-box note">
+                <ul>
+                    <li>適用於區塊元素，但元素的大小必須可知（例如 width、height 固定）。</li>
+                    <li>需要手動調整 <code>top</code> 和
+                        <code>left</code>。
+                    </li>
+                </ul>
+            </div>
+            <pre>div {
+&nbsp;&nbsp;position: relative;
+&nbsp;&nbsp;height: 100px;
+&nbsp;&nbsp;border: 1px solid black;
+}
+span {
+&nbsp;&nbsp;position: absolute;
+&nbsp;&nbsp;top: 50%;
+&nbsp;&nbsp;left: 50%;
+&nbsp;&nbsp;transform: translate(-50%, -50%); /* 讓元素的中心點對齊父容器的中心 */
+}</pre>
+
+            <p class="info-box summary">這種方法適用於 絕對定位元素，但如果元素大小變動，可能會出現問題。</p>
+        </section>
+
+        <section>
+            <h2>6.使用 <code>table</code> 相關屬性（老舊方式，不推薦）</h2>
+            <h3>適用情境：</h3>
+            <div class="info-box note">
+                <ul>
+                    <li>來自早期網頁設計，現在已經被 <code>flexbox</code> 和 <code>grid</code> 取代，但在某些情境下仍可用。</li>
+                </ul>
+            </div>
+            <pre>div {
+&nbsp;&nbsp;display: table;
+&nbsp;&nbsp;width: 100%;
+&nbsp;&nbsp;height: 100px;
+&nbsp;&nbsp;border: 1px solid black;
+}
+span {
+&nbsp;&nbsp;display: table-cell;
+&nbsp;&nbsp;vertical-align: middle; /* 讓表格的內容垂直置中 */
+&nbsp;&nbsp;text-align: center;
+}</pre>
+
+            <p class="info-box summary">不推薦 這種方式，因為 display: table; 會影響其他佈局需求，較不靈活。</p>
+        </section>
+    </div>
+</body>
+
+</html>

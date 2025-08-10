@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Flickr 版型-圖片輪播</title>
+    <title>Bootstrap Flickr 版型</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -17,7 +17,7 @@
     <!-- 導航列 -->
     <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top" data-bs-theme="dark">
         <div class="container">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <a class="navbar-brand" href="#"><img src="./images/flickr-logo.png" alt="flickr-logo" class="img-fluid" style="height: 30px;"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -26,15 +26,18 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="#">首頁</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Link</a>
+                        <a class="nav-link" href="#">特色</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">探索</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
-                            Dropdown
+                            社群
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Action</a></li>
@@ -44,9 +47,6 @@
                             </li>
                             <li><a class="dropdown-item" href="#">Something else here</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
                     </li>
                 </ul>
                 <div class="w-200px position-relative d-flex align-items-center trans-2s me-3">
@@ -59,9 +59,37 @@
             </div>
         </div>
     </nav>
-
     <!-- Header區 -->
-    <header class="h-700px bg-dark">
+    <header class="bg-secondary-subtle">
+        <img src="./images/flickr-banner.png" alt="flickr-logo" class="img-fluid">
+    </header>
+    <!-- 次導覽列 -->
+    <aside class="bg-white border-bottom sticky-top top-56px">
+        <div class="container">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">關於</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">所有相片</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">相簿</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link disabled" aria-disabled="true">最愛</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">博覽館</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">群組</a>
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <!-- 圖片輪播 -->
+    <div class="h-700px bg-dark">
         <div id="carouselExample" class="carousel slide h-100">
             <div class="carousel-indicators btn-5px">
                 <button type="button" data-bs-target="#carouselExample" data-bs-slide-to="0"
@@ -97,10 +125,92 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-    </header>
+    </div>
 
-    <!-- Footer區 -->
-    <footer></footer>
+    <!-- 圖片內容區 -->
+    <main class="mh-200vh py-5">
+        <div class="container">
+            <div class="row g-1">
+                <div class="h-300px col-4">
+                    <div class="bg-secondary h-100 cover">
+                        <div class="w-100 h-100 text-light d-flex align-items-end ctrl">
+                            <div class="w-100 d-flex flex-column">
+                                <span>相片標題</span>
+                                <span>相片擁有者</span>
+                            </div>
+                            <div class="w-100 d-flex justify-content-end">
+                                <span class="me-2"><i class="fa-regular fa-star"></i>收藏</span>
+                                <span class="me-2"><i class="fa-regular fa-comment"></i>留言</span>
+                                <span><i class="fa-regular fa-square-plus"></i>分享</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="h-300px col-4">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-4">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-3">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-3">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-3">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-3">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-3">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-5">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-4">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-2">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-3">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-4">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-3">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-7">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-5">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-2">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-4">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col-3">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+                <div class="h-300px col">
+                    <div class="bg-secondary h-100"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </main>
+
+    <footer>
+
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq"

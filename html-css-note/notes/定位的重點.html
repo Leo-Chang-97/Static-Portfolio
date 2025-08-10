@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>00-筆記_定位的重點</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../HTML&CSS筆記模板.css">
+    <style>
+        .example {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 10px;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS 定位（Position）的五種方式</h1>
+        </header>
+
+        <section>
+            <h2>1. static（靜態定位，預設值）</h2>
+            <h3>特性：</h3>
+            <div class="info-box note">
+                <ul>
+                    <li>static 是 HTML 預設的定位方式，元素會按照正常的文檔流排列。</li>
+                    <li>top、left、right、bottom 對 static 無效。</li>
+                </ul>
+            </div>
+            <h3>📌 應用場景：</h3>
+            <div class="info-box summary">
+                <li>大部分普通元素，例如 &lt;p&gt;、&lt;div&gt;，不需要特別設定 position，一般都保持 static。</li>
+            </div>
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>div {
+    position: static; /* 預設值 */
+    top: 50px;  /* 無效 */
+    left: 100px; /* 無效 */
+}</code></pre>
+            </div>
+
+            
+        </section>
+
+        <section>
+            <h2>2. relative（相對定位）</h2>
+            <h3>特性：</h3>
+            <div class="info-box note">
+                <ul>
+                    <li>relative 相對於自己原本的位置進行偏移，不會脫離正常文檔流，原本的位置仍然保留。</li>
+                    <li>top、left、right、bottom 可用來調整位置。</li>
+                </ul>
+            </div>
+            <h3>📌 應用場景：</h3>
+            <div class="info-box summary">
+                <ol>
+                    <li>微調元素位置（但不影響其他元素）。</li>
+                    <li>作為 absolute 內部的參考點。</li>
+                </ol>
+            </div>
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>.relative-box {
+    position: relative;
+    top: 20px; /* 向下移動 20px */
+    left: 30px; /* 向右移動 30px */
+}</code></pre>
+            </div>
+
+            <p class="info-box pros">
+                <strong class="valid-label">✅ 注意：</strong> 
+                相對定位會保留元素原本的空間，不影響其他元素！
+            </p>
+        </section>
+
+        <section>
+            <h2>3. absolute（絕對定位）</h2>
+            <h3>特性：</h3>
+            <div class="info-box note">
+                <ul>
+                    <li>absolute 完全脫離文檔流，不占據原來的位置。</li>
+                    <li>相對於最近的 relative / absolute / fixed 父級進行定位，若無則相對於 body。</li>
+                </ul>
+            </div>
+            <h3>📌 應用場景：</h3>
+            <div class="info-box summary">
+                <ol>
+                    <li>製作彈出視窗、浮動元件。</li>
+                    <li>卡片疊加效果。</li>
+                    <li>對 relative 容器內的元素進行精準定位。</li>
+                </ol>
+            </div>
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>.container {
+    position: relative; /* 設為參考點 */
+    width: 500px;
+    height: 300px;
+}
+
+.absolute-box {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+}</code></pre>
+            </div>
+
+            <p class="info-box pros">
+                <strong class="valid-label">✅ 注意：</strong> 
+                如果 .absolute-box 沒有 relative 父級，它會參考 body！
+            </p>
+        </section>
+
+        <section>
+            <h2>4. fixed（固定定位）</h2>
+            <h3>特性：</h3>
+            <div class="info-box note">
+                <ul>
+                    <li>fixed 完全脫離文檔流，不會影響其他元素。</li>
+                    <li>相對於視窗（viewport）固定，不會隨滾動而變化。</li>
+                </ul>
+            </div>
+            <h3>📌 應用場景：</h3>
+            <div class="info-box summary">
+                <ol>
+                    <li>製作固定導覽列。</li>
+                    <li>回到頂部按鈕。</li>
+                    <li>浮動聊天按鈕。</li>
+                </ol>
+            </div>
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>.fixed-box {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: black;
+    color: white;
+}</code></pre>
+            </div>
+
+            <p class="info-box pros">
+                <strong class="valid-label">✅ 注意：</strong> 
+                滾動網頁時，.fixed-box 仍然固定在頂部！
+            </p>
+        </section>
+
+        <section>
+            <h2>5. sticky（黏性定位）</h2>
+            <h3>特性：</h3>
+            <div class="info-box note">
+                <ul>
+                    <li>sticky 在超過特定滾動位置時，變成 fixed，否則像 relative 一樣。</li>
+                    <li>需要指定 top / left / right / bottom，否則不會生效。</li>
+                    <li>父容器不能 overflow: hidden;，否則 sticky 失效！</li>
+                </ul>
+            </div>
+            <h3>📌 應用場景：</h3>
+            <div class="info-box summary">
+                <ol>
+                    <li>製作表格的固定標題。</li>
+                    <li>滾動時顯示的導航欄。</li>
+                </ol>
+            </div>
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>.sticky-box {
+    position: sticky;
+    top: 10px;
+    background-color: yellow;
+}</code></pre>
+            </div>
+
+            <p class="info-box pros">
+                <strong class="valid-label">✅ 注意：</strong> 
+                當滾動超過 10px，元素就會固定在 10px 的位置！
+            </p>
+        </section>
+
+        <section>
+            <h2>定位方式的比較</h2>
+            
+            <table>
+                <thead>
+                  <tr>
+                    <th>定位方式</th>
+                    <th>脫離文檔流</th>
+                    <th>相對於誰</th>
+                    <th>影響其他元素</th>
+                    <th>主要應用</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>static</td>
+                    <td>❌ 否</td>
+                    <td>無</td>
+                    <td>✅ 會影響</td>
+                    <td>預設排列</td>
+                  </tr>
+                  <tr>
+                    <td>relative</td>
+                    <td>❌ 否</td>
+                    <td>自己原本的位置</td>
+                    <td>✅ 會影響</td>
+                    <td>微調、父級參考點</td>
+                  </tr>
+                  <tr>
+                    <td>absolute</td>
+                    <td>✅ 是</td>
+                    <td>最近的 relative/absolute/fixed 父級</td>
+                    <td>❌ 不影響</td>
+                    <td>彈窗、浮動區塊</td>
+                  </tr>
+                  <tr>
+                    <td>fixed</td>
+                    <td>✅ 是</td>
+                    <td>視窗（viewport）</td>
+                    <td>❌ 不影響</td>
+                    <td>固定導覽列、回頂部按鈕</td>
+                  </tr>
+                  <tr>
+                    <td>sticky</td>
+                    <td>❌/✅ 部分脫離</td>
+                    <td>最近的可滾動祖先</td>
+                    <td>✅ 會影響</td>
+                    <td>表頭固定、導航欄</td>
+                  </tr>
+                </tbody>
+              </table>
+              
+        </section>
+    </div>
+</body>
+
+</html>

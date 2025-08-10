@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-筆記_選擇器優先級權重分級表格</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../HTML&CSS筆記模板.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS 優先級權重分級</h1>
+        </header>
+    <table>
+        <thead>
+            <tr>
+                <th>類型</th>
+                <th>權重</th>
+                <th>範例</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>行內樣式 (Inline Styles)</td>
+                <td><code>1,0,0,0</code></td>
+                <td class="example-code">&lt;div style="color: red;"&gt;</td>
+            </tr>
+            <tr>
+                <td>ID 選擇器 (ID Selectors)</td>
+                <td><code>0,1,0,0</code></td>
+                <td class="example-code">#my-id</td>
+            </tr>
+            <tr>
+                <td>類別選擇器、屬性選擇器、偽類 (Class, Attribute, Pseudo-class)</td>
+                <td><code>0,0,1,0</code></td>
+                <td class="example-code">.my-class, [type="text"], :hover</td>
+            </tr>
+            <tr>
+                <td>元素選擇器、偽元素 (Element, Pseudo-element)</td>
+                <td><code>0,0,0,1</code></td>
+                <td class="example-code">div, p::before</td>
+            </tr>
+            <tr>
+                <td>通用選擇器、組合符 (Universal Selector, Combinators)</td>
+                <td><code>0,0,0,0</code></td>
+                <td class="example-code">*, >, +, ~</td>
+            </tr>
+            <tr>
+                <td>繼承 (Inherited Styles)</td>
+                <td><code>n/a</code></td>
+                <td class="example-code">color, font-size</td>
+            </tr>
+            <tr>
+                <td>默認 (User Agent Default Styles)</td>
+                <td><code>n/a</code></td>
+                <td class="example-code">button, input</td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</body>
+</html>

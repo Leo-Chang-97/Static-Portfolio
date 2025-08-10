@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-筆記_偽類與偽元素整理</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../HTML&CSS筆記模板.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>偽類與偽元素整理</h1>
+        </header>
+
+        <!-- 偽類的解釋 -->
+        <section>
+
+            <h2>偽類（Pseudo-classes）</h2>
+            <div class="info-box note">
+                <strong>定義：</strong>偽類用於選擇元素的「特定狀態」或「特定位置」，而不是元素本身。
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>類型</th>
+                        <th>語法</th>
+                        <th>範例</th>
+                        <th>說明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>滑鼠懸停</td>
+                        <td><code>:hover</code></td>
+                        <td class="example-code">a:hover { color: red; }</td>
+                        <td>當用戶將滑鼠懸停在元素上時。</td>
+                    </tr>
+                    <tr>
+                        <td>焦點狀態</td>
+                        <td><code>:focus</code></td>
+                        <td class="example-code">input:focus { border-color: blue; }</td>
+                        <td>當元素獲得焦點時（例如輸入框被點擊）。</td>
+                    </tr>
+                    <tr>
+                        <td>第 n 個子元素</td>
+                        <td><code>:nth-child(n)</code></td>
+                        <td class="example-code">li:nth-child(2) { color: green; }</td>
+                        <td>選擇父元素下的第 n 個子元素。</td>
+                    </tr>
+                    <tr>
+                        <td>第一個子元素</td>
+                        <td><code>:first-child</code></td>
+                        <td class="example-code">p:first-child { font-weight: bold; }</td>
+                        <td>選擇父元素下的第一個子元素。</td>
+                    </tr>
+                    <tr>
+                        <td>不符合指定選擇器</td>
+                        <td><code>:not(selector)</code></td>
+                        <td class="example-code">div:not(.special) { opacity: 0.5; }</td>
+                        <td>選擇不符合指定選擇器的元素。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <!-- 偽元素的解釋 -->
+            <h2>偽元素（Pseudo-elements）</h2>
+            <div class="info-box note">
+                <strong>定義：</strong>偽元素用於選擇元素的「特定部分」，而不是整個元素。
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>類型</th>
+                        <th>語法</th>
+                        <th>範例</th>
+                        <th>說明</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>在內容前插入</td>
+                        <td><code>::before</code></td>
+                        <td class="example-code">p::before { content: "👉"; }</td>
+                        <td>在元素內容之前插入內容。</td>
+                    </tr>
+                    <tr>
+                        <td>在內容後插入</td>
+                        <td><code>::after</code></td>
+                        <td class="example-code">p::after { content: "👈"; }</td>
+                        <td>在元素內容之後插入內容。</td>
+                    </tr>
+                    <tr>
+                        <td>第一行文本</td>
+                        <td><code>::first-line</code></td>
+                        <td class="example-code">p::first-line { font-weight: bold; }</td>
+                        <td>選擇元素的第一行文本。</td>
+                    </tr>
+                    <tr>
+                        <td>第一個字母</td>
+                        <td><code>::first-letter</code></td>
+                        <td class="example-code">p::first-letter { font-size: 2em; }</td>
+                        <td>選擇元素的第一個字母。</td>
+                    </tr>
+                    <tr>
+                        <td>選中文本</td>
+                        <td><code>::selection</code></td>
+                        <td class="example-code">::selection { background: yellow; }</td>
+                        <td>選擇用戶選中的文本部分。</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <!-- 總結 -->
+            <h2>總結</h2>
+            <div class="info-box summary">
+                <strong>偽類：</strong>選擇元素的「狀態」或「位置」，語法為 <code>:</code>。<br>
+                <strong>偽元素：</strong>選擇元素的「特定部分」或插入內容，語法為 <code>::</code>。
+            </div>
+        </section>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>02-筆記_利用絕對定位置中</title>
+    <link rel="stylesheet" href="../normalize.css">
+    <link rel="stylesheet" href="../HTML&CSS筆記模板.css">
+    <style>
+        .outer {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            margin: 0 auto;
+
+            position: relative;
+        }
+
+        .inner1 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+
+            width: 100px;
+            height: 100px;
+
+            background-color: #3498db;
+            text-align: center;
+            line-height: 100px;
+            color: white
+        }
+
+        .inner2 {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100px;
+            height: 100px;
+            background-color: #e74c3c;
+            text-align: center;
+            line-height: 100px;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>使用 CSS 絕對定位 讓元素置中</h1>
+        </header>
+
+        <section>
+            <h2>1. 使用 margin: auto; + top、bottom、left、right</h2>
+
+            <div class="info-box note">
+                這種方式適用於 已知寬高的元素，並且 父元素是 position: relative;。
+            </div>
+
+            <h3>HTML</h3>
+            <div class="code">
+                <pre><code>&lt;div class="outer"&gt;
+    &lt;div class="inner1"&gt;置中的元素&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>.inner1 {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    /*設定元素的寬高*/
+    width: 100px;
+    height: 100px;
+    
+    /*設定元素內的字*/
+    background: skyblue;
+    text-align: center;
+    line-height: 100px;
+    color: white
+}</code></pre>
+            </div>
+
+            <div class="outer">
+                <div class="inner1">置中的元素</div>
+            </div>
+
+        </section>
+
+        <section>
+            <h2>2. 使用 top、left + transform</h2>
+
+            <div class="info-box note">
+                這種方式適用於 父元素是 position: relative; 或 視窗（使用 position: fixed;） 的情況。
+            </div>
+
+            <div class="info-box summary">
+                <ol>
+                    <li>設定 position: absolute;（相對於父元素）。</li>
+                    <li>設定 top: 50%; left: 50%;，讓元素左上角對齊父元素的中心點。</li>
+                    <li>使用 transform: translate(-50%, -50%);，讓元素自身的中心對齊父元素的中心。
+                    </li>
+                </ol>
+            </div>
+
+            <h3>HTML</h3>
+            <div class="code">
+                <pre><code>&lt;div class="outer"&gt;
+    &lt;div class="inner2"&gt;置中的元素&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+
+            <h3>CSS</h3>
+            <div class="code">
+                <pre><code>.inner2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: darkgreen;
+    text-align: center;
+    line-height: 100px;
+    color: white;
+}</code></pre>
+            </div>
+
+            <div class="outer">
+                <div class="inner2">置中的元素</div>
+            </div>
+
+        </section>
+    </div>
+</body>
+
+</html>
